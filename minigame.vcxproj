@@ -20,9 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\gameMain.h" />
+    <ClInclude Include="source\modeEnd.h" />
+    <ClInclude Include="source\modeGame.h" />
+    <ClInclude Include="source\modeTitle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\gameMain.cpp" />
+    <ClCompile Include="source\modeEnd.cpp" />
+    <ClCompile Include="source\modeGame.cpp" />
+    <ClCompile Include="source\modeTitle.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
