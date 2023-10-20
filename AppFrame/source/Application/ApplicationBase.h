@@ -6,7 +6,7 @@
  * \date   March 2023
  *********************************************************************/
 #include "DxLib.h"
-#include "EffekseerForDXLib.h"
+//#include "EffekseerForDXLib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
