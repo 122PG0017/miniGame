@@ -19,16 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\charBase.h" />
     <ClInclude Include="source\gameMain.h" />
     <ClInclude Include="source\modeEnd.h" />
     <ClInclude Include="source\modeGame.h" />
     <ClInclude Include="source\modeTitle.h" />
+    <ClInclude Include="source\player.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\charBase.cpp" />
     <ClCompile Include="source\gameMain.cpp" />
     <ClCompile Include="source\modeEnd.cpp" />
     <ClCompile Include="source\modeGame.cpp" />
     <ClCompile Include="source\modeTitle.cpp" />
+    <ClCompile Include="source\player.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
