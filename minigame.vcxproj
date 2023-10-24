@@ -23,6 +23,7 @@
     <ClInclude Include="source\gameMain.h" />
     <ClInclude Include="source\modeEnd.h" />
     <ClInclude Include="source\modeGame.h" />
+    <ClInclude Include="source\modeTest.h" />
     <ClInclude Include="source\modeTitle.h" />
     <ClInclude Include="source\player.h" />
   </ItemGroup>
@@ -31,6 +32,7 @@
     <ClCompile Include="source\gameMain.cpp" />
     <ClCompile Include="source\modeEnd.cpp" />
     <ClCompile Include="source\modeGame.cpp" />
+    <ClCompile Include="source\modeTest.cpp" />
     <ClCompile Include="source\modeTitle.cpp" />
     <ClCompile Include="source\player.cpp" />
   </ItemGroup>

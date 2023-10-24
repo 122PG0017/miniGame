@@ -39,6 +39,9 @@
     <ClInclude Include="source\modeTitle.h">
       <Filter>ヘッダー ファイル\mode</Filter>
     </ClInclude>
+    <ClInclude Include="source\modeTest.h">
+      <Filter>ヘッダー ファイル\mode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\gameMain.cpp">
@@ -57,6 +60,9 @@
       <Filter>ソース ファイル\mode</Filter>
     </ClCompile>
     <ClCompile Include="source\modeTitle.cpp">
+      <Filter>ソース ファイル\mode</Filter>
+    </ClCompile>
+    <ClCompile Include="source\modeTest.cpp">
       <Filter>ソース ファイル\mode</Filter>
     </ClCompile>
   </ItemGroup>
