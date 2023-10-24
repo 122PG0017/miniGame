@@ -16,7 +16,6 @@ public:
 	static bool save(const char* dir, valData* _val);
 
 protected:
-	int _cg;
 	int isPut = 0;
 	ModeServer* _modeServer;
 	imputInf _imputInf;
