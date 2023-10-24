@@ -1,7 +1,8 @@
 #include <fstream>
 #include <sstream>
 #include"modeTitle.h"
-
+#include"modeTest.h"
+using namespace model;
 bool modeTitle::save(const char* dir, valData* _val)
 {
 	std::vector<std::string> _data;
@@ -36,13 +37,7 @@ bool modeTitle::loadData(const char* dir, valData* _val)
 
 bool	modeTitle::Initialize()
 {
-	loadData("game/res/save.csv", &_modeServer->_valData);
-
-	//âπê∫ÉfÅ[É^ÇÃì«Ç›çûÇ›
-	for (int i = 0; i < 7; i++)
-	{
-
-	}
+	_cg = _modeServer->RS.loadGraphR("resource/tmp/sky.png");
 
 	return true;
 }
@@ -50,12 +45,12 @@ bool	modeTitle::Initialize()
 bool	modeTitle::Process()
 {
 
-	if (isPut == 1 && !CheckHitKeyAll() || isPut == 0 && !_modeServer->_valData.isLogoRender) { isPut = 2; }
-	if ((_imputInf._gTrgb[KEY_INPUT_RETURN] || _imputInf._gTrgp[XINPUT_BUTTON_A]) && !_modeServer->_valData.isLogoRender && isPut == 2)
+	if (isPut == 1 && !CheckHitKeyAll() || isPut == 0 ) { isPut = 2; }
+	if ((_imputInf._gTrgb[KEY_INPUT_RETURN] || _imputInf._gTrgp[XINPUT_BUTTON_A]) && isPut == 2)
 	{
 		StopMusic();
 		//PlaySoundMem(titleCallHaldle[rand() % 7], DX_PLAYTYPE_BACK);
-		//_modeServer->Add(std::make_unique<>(_modeServer), 1, );
+		_modeServer->Add(std::make_unique<ModeTest>(_modeServer), 1,"test");
 		return false;
 	}
 	return true;
@@ -63,16 +58,7 @@ bool	modeTitle::Process()
 
 bool	modeTitle::Render()
 {
-
-	if (_modeServer->_valData.isLogoRender)
-	{//logoAlphaNum
-
-	}
-	else
-	{
-
-		//DrawString(1200, 20, "TITLEmode", GetColor(255, 255, 255));
-	}
+	DrawGraph(0, 0, _cg, true);
 	return true;
 }
 
