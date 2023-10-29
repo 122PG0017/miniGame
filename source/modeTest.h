@@ -23,7 +23,8 @@ public:
     //bool Debug()override;
 protected:
     bool  isAnimEnd;
+    int Handle;
     ModeServer* _modeServer;
     modelInf _modelInf;
-    Rserver* RS;
+    Rserver RS;
 };

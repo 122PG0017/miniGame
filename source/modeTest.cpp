@@ -13,16 +13,23 @@ bool ModeTest::Initialize() {
 
     ////テストオブジェクトの追加
     //_objectServer->Add(std::make_unique<TestObject>());
-    modelImport("resource/Knight/MV1/enemy_1_.mv1", 1.0f, &_modelInf, RS);
+    modelImport("resource/Knight/MV1/enemy_1_.mv1", 1.0f, &_modelInf, &RS);
 
+    _modelInf.pos = VECTOR (0, 0, 0);
+
+    Handle=RS.loadGraphR("resource/tmp/Dora.png");
+    
     SetUseZBuffer3D(true);
     SetWriteZBuffer3D(true);
-
+    SetUseLighting(false);
     //カメラのセット
-    SetCameraPositionAndTarget_UpVecY({ 0.0f, 50.0f, -150.0f }, { 0.0f, 50.0f, 0.0f });
+    SetCameraPositionAndTarget_UpVecY({ 0.0f, 500.0f, 50.0f }, { 0.0f, 0.0f, 0.0f });
     //ライトの設定
     //ChangeLightTypeDir({ 0.1f,1.0f,0.5f });
     SetLightDifColor({ 2.0f, 2.0f, 2.0f, 0.0f });
+
+    RS.duplicateModelListImportR();
+    animChange(2,&_modelInf,false,false,false);
     return true;
 }
 
@@ -45,7 +52,10 @@ bool ModeTest::Render() {
 
     //_objectServer->Render();
     isAnimEnd = modelRender(&_modelInf, 1, 1);
-
+    //drawCube(VECTOR(0, 0, 0), VECTOR(100, 100, 100), GetColorU8(0, 0, 0, 0), GetColorU8(0, 0, 0, 0));
+   
+        drawBPolygon(VECTOR(600,0,400), VECTOR(600 ,0,-400 ), VECTOR(-600,0,400), VECTOR(-600 ,0,-400 ), Handle);
+    
     return true;
 }
 

@@ -166,7 +166,8 @@ public:
 	/**
 	 * @brief 操作入力情報のセット
 	 * @param iInf 操作入力情報セット用ポインタ
-	 * @param cameraDir カメラ位置情報セット用ポインタ
+	 * @param camera
+	 * Dir カメラ位置情報セット用ポインタ
 	 */
 	void getInputKey(imputInf* iInf, float* cameraDir) { _imputInf = iInf, _cameraDir = cameraDir; };
 
