@@ -42,7 +42,7 @@ bool	modeTitle::Initialize()
 	return true;
 }
 
-bool	modeTitle::Process()
+bool	modeTitle::Process(InputManager& input)
 {
 
 	if (isPut == 1 && !CheckHitKeyAll() || isPut == 0 ) { isPut = 2; }

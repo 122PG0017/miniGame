@@ -19,15 +19,15 @@
     <Filter Include="ヘッダー ファイル\mode">
       <UniqueIdentifier>{bac94727-c527-4057-8799-86de5e74f0c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\object">
+      <UniqueIdentifier>{85c7b0a1-4830-4676-a934-eb7720f8d86d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\object">
+      <UniqueIdentifier>{8ac40edc-8abb-405b-a079-ea5930d55796}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\gameMain.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\player.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\charBase.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="source\modeEnd.h">
@@ -36,21 +36,33 @@
     <ClInclude Include="source\modeGame.h">
       <Filter>ヘッダー ファイル\mode</Filter>
     </ClInclude>
+    <ClInclude Include="source\modeTest.h">
+      <Filter>ヘッダー ファイル\mode</Filter>
+    </ClInclude>
+    <ClInclude Include="source\objectBase.h">
+      <Filter>ヘッダー ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\charBase.h">
+      <Filter>ヘッダー ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\player.h">
+      <Filter>ヘッダー ファイル\object</Filter>
+    </ClInclude>
     <ClInclude Include="source\modeTitle.h">
       <Filter>ヘッダー ファイル\mode</Filter>
     </ClInclude>
-    <ClInclude Include="source\modeTest.h">
-      <Filter>ヘッダー ファイル\mode</Filter>
+    <ClInclude Include="source\componentBase.h">
+      <Filter>ヘッダー ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\inputManager.h">
+      <Filter>ヘッダー ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\math.h">
+      <Filter>ヘッダー ファイル\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\gameMain.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\player.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\charBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="source\modeEnd.cpp">
@@ -64,6 +76,24 @@
     </ClCompile>
     <ClCompile Include="source\modeTest.cpp">
       <Filter>ソース ファイル\mode</Filter>
+    </ClCompile>
+    <ClCompile Include="source\charBase.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\componentBase.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\objectBase.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\player.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\inputManager.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\math.cpp">
+      <Filter>ソース ファイル\object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

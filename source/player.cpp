@@ -18,6 +18,6 @@ bool player::Process()
 
 bool player::Render(float timeSpeed)
 {
-	isAnimEnd = modelRender(&_modelInf, 1, timeSpeed);
+	//isAnimEnd = modelRender(&_modelInf, 1, timeSpeed);
 	return false;
 }
