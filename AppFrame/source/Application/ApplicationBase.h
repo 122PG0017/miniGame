@@ -15,6 +15,7 @@
 #include <string>
 #include "../Mode//ModeServer.h"
 
+
 class ApplicationBase
 {
 public:

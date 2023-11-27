@@ -6,9 +6,9 @@
  * \date   March 2023
  *********************************************************************/
 #include "ApplicationBase.h"
+#include "../AppFrame/source/ResourceServer/SoundServer.h"
 
 ApplicationBase* ApplicationBase::_lpInstance = NULL;
-
 
 ApplicationBase::ApplicationBase() { _lpInstance = this; }
 
@@ -27,6 +27,12 @@ bool ApplicationBase::Initialize(HINSTANCE hInstance, ModeServer* ms)
 	// DirectX11を使用するようにする。(DirectX9も可、一部機能不可)
 	// Effekseerを使用するには必ず設定する。
 	SetUseDirect3DVersion(DX_DIRECT3D_11);
+
+	//SetEnableXAudioFlag(TRUE);
+
+	// 3Dサウンドにおける1メートルの距離を指定する
+	// DxLib_Init の前に Set3DSoundOneMetre を呼ぶ
+	Set3DSoundOneMetre(500.0f);
 
 	if (DxLib_Init() == -1)
 	{	// エラーが起きたら直ちに終了
@@ -117,6 +123,7 @@ bool ApplicationBase::Input()
 
 bool ApplicationBase::Process()
 {
+	SoundServer::CheckLoad();
 	if (_serverMode->_valData.hitstopF > 0) { _serverMode->_valData.hitstopF--; }
 	else
 	{

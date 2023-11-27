@@ -1,5 +1,5 @@
 #pragma once
-#include"appframe.h"
+#include"../appframe.h"
 #include"inputManager.h"
 
 class ObjectBase;

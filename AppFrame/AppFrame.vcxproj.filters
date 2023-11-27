@@ -16,6 +16,12 @@
     <Filter Include="modelManager">
       <UniqueIdentifier>{195dc846-b15e-4ff0-9ec2-c5f0afdeb1db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{76ee5282-22b7-4de8-8f4a-1f94246c4eb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="object">
+      <UniqueIdentifier>{29a51fe8-5c65-40d6-aae6-ec4a42923133}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Application\ApplicationBase.cpp">
@@ -38,6 +44,24 @@
     </ClCompile>
     <ClCompile Include="source\modelManager\modelManager.cpp">
       <Filter>modelManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ResourceServer\SoundServer.cpp">
+      <Filter>ResourceServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Math\math.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\objectBase.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\objectServer.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\componentBase.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\inputManager.cpp">
+      <Filter>object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +86,24 @@
     </ClInclude>
     <ClInclude Include="source\modelManager\modelManager.h">
       <Filter>modelManager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ResourceServer\SoundServer.h">
+      <Filter>ResourceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Math\math.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\objectBase.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\objectServer.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\componentBase.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\inputManager.h">
+      <Filter>object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

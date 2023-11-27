@@ -182,20 +182,32 @@
     <ClCompile Include="source\Application\ApplicationBase.cpp" />
     <ClCompile Include="source\Application\WinMain.cpp" />
     <ClCompile Include="source\CFile\CFile.cpp" />
+    <ClCompile Include="source\Math\math.cpp" />
     <ClCompile Include="source\modelManager\modelManager.cpp" />
     <ClCompile Include="source\Mode\ModeBase.cpp" />
     <ClCompile Include="source\Mode\ModeServer.cpp" />
+    <ClCompile Include="source\object\componentBase.cpp" />
+    <ClCompile Include="source\object\inputManager.cpp" />
+    <ClCompile Include="source\object\objectBase.cpp" />
+    <ClCompile Include="source\object\objectServer.cpp" />
     <ClCompile Include="source\ResourceServer\ResourceServer.cpp" />
+    <ClCompile Include="source\ResourceServer\SoundServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\appframe.h" />
     <ClInclude Include="source\Application\ApplicationBase.h" />
     <ClInclude Include="source\Application\UtilMacro.h" />
     <ClInclude Include="source\CFile\CFile.h" />
+    <ClInclude Include="source\Math\math.h" />
     <ClInclude Include="source\modelManager\modelManager.h" />
     <ClInclude Include="source\Mode\ModeBase.h" />
     <ClInclude Include="source\Mode\ModeServer.h" />
+    <ClInclude Include="source\object\componentBase.h" />
+    <ClInclude Include="source\object\inputManager.h" />
+    <ClInclude Include="source\object\objectBase.h" />
+    <ClInclude Include="source\object\objectServer.h" />
     <ClInclude Include="source\ResourceServer\ResourceServer.h" />
+    <ClInclude Include="source\ResourceServer\SoundServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

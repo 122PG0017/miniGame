@@ -25,6 +25,9 @@
     <Filter Include="ヘッダー ファイル\object">
       <UniqueIdentifier>{8ac40edc-8abb-405b-a079-ea5930d55796}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\tmp">
+      <UniqueIdentifier>{b658dbb0-3be6-4999-9543-d8f4126a8338}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\gameMain.h">
@@ -39,9 +42,6 @@
     <ClInclude Include="source\modeTest.h">
       <Filter>ヘッダー ファイル\mode</Filter>
     </ClInclude>
-    <ClInclude Include="source\objectBase.h">
-      <Filter>ヘッダー ファイル\object</Filter>
-    </ClInclude>
     <ClInclude Include="source\charBase.h">
       <Filter>ヘッダー ファイル\object</Filter>
     </ClInclude>
@@ -51,14 +51,11 @@
     <ClInclude Include="source\modeTitle.h">
       <Filter>ヘッダー ファイル\mode</Filter>
     </ClInclude>
-    <ClInclude Include="source\componentBase.h">
-      <Filter>ヘッダー ファイル\object</Filter>
+    <ClInclude Include="source\EqualizerRender.h">
+      <Filter>ソース ファイル\tmp</Filter>
     </ClInclude>
-    <ClInclude Include="source\inputManager.h">
-      <Filter>ヘッダー ファイル\object</Filter>
-    </ClInclude>
-    <ClInclude Include="source\math.h">
-      <Filter>ヘッダー ファイル\object</Filter>
+    <ClInclude Include="source\pricompiler.h">
+      <Filter>ソース ファイル\tmp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,20 +77,11 @@
     <ClCompile Include="source\charBase.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
-    <ClCompile Include="source\componentBase.cpp">
-      <Filter>ソース ファイル\object</Filter>
-    </ClCompile>
-    <ClCompile Include="source\objectBase.cpp">
-      <Filter>ソース ファイル\object</Filter>
-    </ClCompile>
     <ClCompile Include="source\player.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
-    <ClCompile Include="source\inputManager.cpp">
-      <Filter>ソース ファイル\object</Filter>
-    </ClCompile>
-    <ClCompile Include="source\math.cpp">
-      <Filter>ソース ファイル\object</Filter>
+    <ClCompile Include="source\EqualizerRender.cpp">
+      <Filter>ソース ファイル\tmp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

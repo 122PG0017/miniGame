@@ -20,28 +20,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\charBase.h" />
-    <ClInclude Include="source\componentBase.h" />
+    <ClInclude Include="source\EqualizerRender.h" />
     <ClInclude Include="source\gameMain.h" />
-    <ClInclude Include="source\inputManager.h" />
-    <ClInclude Include="source\math.h" />
     <ClInclude Include="source\modeEnd.h" />
     <ClInclude Include="source\modeGame.h" />
     <ClInclude Include="source\modeTest.h" />
     <ClInclude Include="source\modeTitle.h" />
-    <ClInclude Include="source\objectBase.h" />
     <ClInclude Include="source\player.h" />
+    <ClInclude Include="source\pricompiler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\charBase.cpp" />
-    <ClCompile Include="source\componentBase.cpp" />
+    <ClCompile Include="source\EqualizerRender.cpp" />
     <ClCompile Include="source\gameMain.cpp" />
-    <ClCompile Include="source\inputManager.cpp" />
-    <ClCompile Include="source\math.cpp" />
     <ClCompile Include="source\modeEnd.cpp" />
     <ClCompile Include="source\modeGame.cpp" />
     <ClCompile Include="source\modeTest.cpp" />
     <ClCompile Include="source\modeTitle.cpp" />
-    <ClCompile Include="source\objectBase.cpp" />
     <ClCompile Include="source\player.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
