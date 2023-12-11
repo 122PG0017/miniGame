@@ -24,3 +24,7 @@
 #include "Mode/ModeServer.h"
 #include "modelManager/modelManager.h"
 #include "Math/math.h"
+#include "Object/inputManager.h"
+#include "Object/ObjectBase.h"
+#include "Object/ComponentBase.h"
+#include "Object/ObjectServer.h"

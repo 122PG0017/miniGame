@@ -1,23 +1,28 @@
-#include"player.h"
+using namespace AppFrame;
 using namespace model;
-bool player::Initialize()
+
+void player::Initialize()
 {
-	modelImport("resource/Knight/MV1/enemy_1_.mv1", 1.0f, &_modelInf, RS);
-	return true;
+	ObjectBase::Initialize();
+	modelImport("resource/Knight/MV1/enemy_1_.mv1", 1.0f, &_modelInf, &RS);
+	_modelInf.pos = VECTOR(0, 0, 0);
+	RS.duplicateModelListImportR();
+	animChange(2, &_modelInf, false, false, false);
 }
 
-bool player::Terminate()
+void player::Terminate()
 {
-	return false;
+	model::modelDelete(&_modelInf);
+	ObjectBase::Terminate();
 }
 
-bool player::Process()
+void player::Process(InputManager& input)
 {
-	return false;
+	ObjectBase::Process(input);
 }
 
-bool player::Render(float timeSpeed)
+void player::Render()
 {
-	//isAnimEnd = modelRender(&_modelInf, 1, timeSpeed);
-	return false;
+	isAnimEnd = modelRender(&_modelInf, 1, 1);
+	ObjectBase::Render();
 }

@@ -2,10 +2,13 @@
  * \file   EqualizerRender.cpp
  * \brief  ‰¹º‚Ìü”g”–ˆ‚Ì‰¹—Ê‚ğ•`‰æ‚·‚é‹@”\
  *
- * \author “y‹«‘¾˜Y
+ * \author ¼“c@—T
  * \date   March 2023
  *********************************************************************/
 #include "EqualizerRender.h"
+using namespace AppFrame;
+using namespace model;
+
 
 namespace {
     constexpr int Split = 120;//æ“¾ü”g”‚Ì•ªŠ„”
@@ -18,7 +21,7 @@ namespace {
     constexpr float PieceAngle = StepAngle * 0.6f;
     constexpr int colorPatternSize = 7;
     static const std::array<unsigned int, colorPatternSize> ColorPattern = {
-        Color::Red, Color::Blue, Color::Green, Color::Purple, Color::Yellow, Color::LightBlue, Color::White
+        //Color::Red, Color::Blue, Color::Green, Color::Purple, Color::Yellow, Color::LightBlue, Color::White
     };
 }
 

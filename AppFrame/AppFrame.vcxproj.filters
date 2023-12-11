@@ -19,7 +19,7 @@
     <Filter Include="Math">
       <UniqueIdentifier>{76ee5282-22b7-4de8-8f4a-1f94246c4eb9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="object">
+    <Filter Include="Object">
       <UniqueIdentifier>{29a51fe8-5c65-40d6-aae6-ec4a42923133}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -52,16 +52,16 @@
       <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="source\object\objectBase.cpp">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="source\object\objectServer.cpp">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="source\object\componentBase.cpp">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="source\object\inputManager.cpp">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,16 +94,16 @@
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="source\object\objectBase.h">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="source\object\objectServer.h">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="source\object\componentBase.h">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="source\object\inputManager.h">
-      <Filter>object</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

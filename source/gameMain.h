@@ -1,12 +1,11 @@
 #pragma once
-#include"appframe.h"
 #include<memory>
 
 class gameMain : public ApplicationBase
 {
 	typedef ApplicationBase base;
 public:
-	bool Initialize(HINSTANCE hInstance, ModeServer* ms) override;
+	bool Initialize(HINSTANCE hInstance) override;
 	bool Terminate() override;
 	bool Input() override;
 	bool Process() override;
@@ -15,7 +14,7 @@ public:
 	bool AppWindowed() override { return true; }
 	int DispSizeW() override { return 1280; }
 	int DispSizeH() override { return 720; }
-	ModeServer& getModeServer() { return *_modeServer; };
+	//ModeServer& getModeServer() { return *_modeServer; };
 
 protected:
 
@@ -24,7 +23,6 @@ protected:
 	float spd, cameraDir, cameraHigh;
 	VECTOR cameraPos, cameraFor;
 	modelInf plMI, stage;
-	ModeServer* _modeServer;
 	std::string NS;
 
 	bool debugMode = true;

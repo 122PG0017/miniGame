@@ -5,7 +5,8 @@
  * \author 
  * \date   December 2022
  *********************************************************************/
-#include"modeTest.h"
+
+using namespace AppFrame;
 using namespace model;
  //最初に一度だけ自動的に呼ばれる
 bool ModeTest::Initialize() {
@@ -13,11 +14,11 @@ bool ModeTest::Initialize() {
 
     ////テストオブジェクトの追加
     //_objectServer->Add(std::make_unique<TestObject>());
-    modelImport("resource/Knight/MV1/enemy_1_.mv1", 1.0f, &_modelInf, &RS);
+    //modelImport("resource/Knight/MV1/enemy_1_.mv1", 1.0f, &_modelInf, &RS);
     
-    _modelInf.pos = VECTOR (0, 0, 0);
+    //_modelInf.pos = VECTOR (0, 0, 0);
 
-    Handle=RS.loadGraphR("resource/tmp/Dora.png");
+    //Handle=RS.loadGraphR("resource/tmp/Dora.png");
     
     SetUseZBuffer3D(true);
     SetWriteZBuffer3D(true);
@@ -40,21 +41,21 @@ bool ModeTest::Terminate() {
 
 }
 
-/*bool ModeTest::Update(InputManager& input) {
-    ModeBase::Update(input);
-    _objectServer->Update(input);
+bool ModeTest::Process(InputManager& input) {
+    ModeBase::Process(input);
+    _objectServer->Process(input);
 
     return true;
-}*/
+}
 
 bool ModeTest::Render() {
     ModeBase::Render();
 
     //_objectServer->Render();
-    isAnimEnd = modelRender(&_modelInf, 1, 1);
+    //isAnimEnd = modelRender(&_modelInf, 1, 1);
     //drawCube(VECTOR(0, 0, 0), VECTOR(100, 100, 100), GetColorU8(0, 0, 0, 0), GetColorU8(0, 0, 0, 0));
    
-    drawBPolygon(VECTOR(600,0,400), VECTOR(600 ,0,-400 ), VECTOR(-600,0,400), VECTOR(-600 ,0,-400 ), Handle);
+   //drawBPolygon(VECTOR(600,0,400), VECTOR(600 ,0,-400 ), VECTOR(-600,0,400), VECTOR(-600 ,0,-400 ), Handle);
     
     return true;
 }

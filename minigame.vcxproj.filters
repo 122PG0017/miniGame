@@ -1,87 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Mode">
+      <UniqueIdentifier>{8128285b-c735-4540-bb1f-3167ca3153d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Object">
+      <UniqueIdentifier>{5888e711-37ce-4403-af4e-390fc03623ce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Application">
+      <UniqueIdentifier>{b724c6b3-2c26-475c-872d-38c0c2ff6fe8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\mode">
-      <UniqueIdentifier>{91ad136a-f28c-4777-8377-05984e1f3aff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mode">
-      <UniqueIdentifier>{bac94727-c527-4057-8799-86de5e74f0c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\object">
-      <UniqueIdentifier>{85c7b0a1-4830-4676-a934-eb7720f8d86d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\object">
-      <UniqueIdentifier>{8ac40edc-8abb-405b-a079-ea5930d55796}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\tmp">
-      <UniqueIdentifier>{b658dbb0-3be6-4999-9543-d8f4126a8338}</UniqueIdentifier>
+    <Filter Include="System">
+      <UniqueIdentifier>{e3361004-0386-4a29-b863-8643de4291b7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\gameMain.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="source\modeEnd.h">
-      <Filter>ヘッダー ファイル\mode</Filter>
+      <Filter>Mode</Filter>
     </ClInclude>
     <ClInclude Include="source\modeGame.h">
-      <Filter>ヘッダー ファイル\mode</Filter>
+      <Filter>Mode</Filter>
     </ClInclude>
     <ClInclude Include="source\modeTest.h">
-      <Filter>ヘッダー ファイル\mode</Filter>
-    </ClInclude>
-    <ClInclude Include="source\charBase.h">
-      <Filter>ヘッダー ファイル\object</Filter>
-    </ClInclude>
-    <ClInclude Include="source\player.h">
-      <Filter>ヘッダー ファイル\object</Filter>
+      <Filter>Mode</Filter>
     </ClInclude>
     <ClInclude Include="source\modeTitle.h">
-      <Filter>ヘッダー ファイル\mode</Filter>
+      <Filter>Mode</Filter>
     </ClInclude>
-    <ClInclude Include="source\EqualizerRender.h">
-      <Filter>ソース ファイル\tmp</Filter>
+    <ClInclude Include="source\gameObjectBase.h">
+      <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="source\pricompiler.h">
-      <Filter>ソース ファイル\tmp</Filter>
+    <ClInclude Include="source\player.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gameMain.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="source\precompiledHeader.h">
+      <Filter>Application</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\gameMain.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="source\modeEnd.cpp">
-      <Filter>ソース ファイル\mode</Filter>
+      <Filter>Mode</Filter>
     </ClCompile>
     <ClCompile Include="source\modeGame.cpp">
-      <Filter>ソース ファイル\mode</Filter>
-    </ClCompile>
-    <ClCompile Include="source\modeTitle.cpp">
-      <Filter>ソース ファイル\mode</Filter>
+      <Filter>Mode</Filter>
     </ClCompile>
     <ClCompile Include="source\modeTest.cpp">
-      <Filter>ソース ファイル\mode</Filter>
+      <Filter>Mode</Filter>
     </ClCompile>
-    <ClCompile Include="source\charBase.cpp">
-      <Filter>ソース ファイル\object</Filter>
+    <ClCompile Include="source\modeTitle.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gameObjectBase.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="source\player.cpp">
-      <Filter>ソース ファイル\object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="source\EqualizerRender.cpp">
-      <Filter>ソース ファイル\tmp</Filter>
+    <ClCompile Include="source\precompiledHeader.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gameMain.cpp">
+      <Filter>Application</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

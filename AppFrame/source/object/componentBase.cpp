@@ -1,28 +1,29 @@
 #include "ComponentBase.h"
 
+namespace AppFrame {
+    ComponentBase::ComponentBase()
+        :_parent{ nullptr }
+    {
+    }
 
-ComponentBase::ComponentBase()
-    :_parent{ nullptr }
-{
-}
+    ComponentBase::~ComponentBase()
+    {
+    }
 
-ComponentBase::~ComponentBase()
-{
-}
+    bool ComponentBase::Init()
+    {
+        return true;
+    }
 
-bool ComponentBase::Init()
-{
-    return true;
-}
+    void ComponentBase::Process(InputManager& input)
+    {
+    }
 
-void ComponentBase::Update(InputManager& input)
-{
-}
+    void ComponentBase::Render()
+    {
+    }
 
-void ComponentBase::Render()
-{
-}
-
-void ComponentBase::Debug()
-{
+    void ComponentBase::Debug()
+    {
+    }
 }

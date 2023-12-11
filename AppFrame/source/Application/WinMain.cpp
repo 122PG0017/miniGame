@@ -5,8 +5,8 @@
  * \author 山本莉久
  * \date   March 2023
  *********************************************************************/
-#include "../appframe.h"
-
+#include "../AppFrame/source/appframe.h"
+using namespace AppFrame;
  //
  // WinMain(). プログラム起動関数
  //
@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	if (!appBase) { return 0; }
 
-	if (!appBase->Initialize(hInstance, &_modeServer)) {
+	if (!appBase->Initialize(hInstance)) {
 		return 0;
 	}
 

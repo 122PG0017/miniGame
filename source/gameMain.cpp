@@ -1,24 +1,23 @@
 #include<vector>
 #include<memory>
-#include"gameMain.h"
-#include"modeTitle.h"
+
 using namespace DxLib;
+using namespace AppFrame;
+using namespace model;
+
 
 // ŽÀ‘Ì
 gameMain appFrame;
 
-bool gameMain::Initialize(HINSTANCE hInstance, ModeServer* ms)
+bool gameMain::Initialize(HINSTANCE hInstance)
 {
-	if (!base::Initialize(hInstance, ms)) { return false; }
-	_modeServer = ms;
-	_modeServer->Add(std::make_unique<modeTitle>(_modeServer), 1, "Title");
-
+	if (!base::Initialize(hInstance)) { return false; }
+	ModeServer::GetInstance()->Add(std::make_unique<modeTitle>(), 5, "ModeTitle");
 	return true;
 }
 
 bool gameMain::Terminate()
 {
-	_modeServer->Clear();
 	base::Terminate();
 	return true;
 }
@@ -33,7 +32,7 @@ bool gameMain::Process()
 {
 	base::Process();
 
-	if (_imputInf._gKeyb[KEY_INPUT_ESCAPE] || _imputInf._gKeyp[XINPUT_BUTTON_BACK] == 1) { return false; }
+	if (CheckHitKey(KEY_INPUT_ESCAPE)) { return false; }
 	return true;
 }
 

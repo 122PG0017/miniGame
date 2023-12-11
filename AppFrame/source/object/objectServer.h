@@ -13,44 +13,45 @@
 #include <algorithm>
 #include <string>
 
-class ObjectBase;
-class InputManager;
-class ModeBase;
+namespace AppFrame {
+	class ObjectBase;
+	class InputManager;
+	class ModeBase;
 
-class ObjectServer {
+	class ObjectServer {
 
-public:
-	ObjectServer(ModeBase& parent);
-	~ObjectServer();
+	public:
+		ObjectServer(ModeBase& parent);
+		~ObjectServer();
 
-	std::vector<std::unique_ptr<ObjectBase>>& GetObjects() { return _objects; }
+		std::vector<std::unique_ptr<ObjectBase>>& GetObjects() { return _objects; }
 
-	void Clear();
+		void Clear();
 
-	/** Actorをペンディングに追加する */
-	void Add(std::unique_ptr<ObjectBase> actor);
-	//特定のオブジェクトを削除する
-	void Delete(ObjectBase& actor);
-	void Update(InputManager& input);
-	void Render(int renderScreen = DX_SCREEN_BACK);
-	void Debug();
+		/** Actorをペンディングに追加する */
+		void Add(std::unique_ptr<ObjectBase> actor);
+		//特定のオブジェクトを削除する
+		void Delete(ObjectBase& actor);
+		void Process(InputManager& input);
+		void Render(int renderScreen = DX_SCREEN_BACK);
+		void Debug();
 
-	ObjectBase* Get(const int id);
-	ObjectBase* Get(std::string_view name);
+		ObjectBase* Get(const int id);
+		ObjectBase* Get(std::string_view name);
 
-	
-private:
-	std::vector<std::unique_ptr<ObjectBase>> _objects;
-	std::vector<std::unique_ptr<ObjectBase>> _pendingObjects;
 
-	bool _updating;
+	private:
+		std::vector<std::unique_ptr<ObjectBase>> _objects;
+		std::vector<std::unique_ptr<ObjectBase>> _pendingObjects;
 
-	//ペンディングのActorをゲーム内に追加
-	void AddPendingObject();
-	//deadフラグが立っているオブジェクトを全て削除
-	void DeleteObject();
+		bool _updating;
 
-	int _uidCount;
-	ModeBase& _mode;
-};
+		//ペンディングのActorをゲーム内に追加
+		void AddPendingObject();
+		//deadフラグが立っているオブジェクトを全て削除
+		void DeleteObject();
 
+		int _uidCount;
+		ModeBase& _mode;
+	};
+}

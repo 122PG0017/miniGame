@@ -1,18 +1,18 @@
 #pragma once
-#include"charBase.h"
 
-class player : public CharBase
+class player : public gameObjectBase
 {
 public:
-	player();
-	~player();
-	bool Initialize() override;
-	bool Terminate() override;
-	bool Process() override;
-	bool Render(float timeSpeed) override;
+	using ObjectBase::AddComponent;
+	player() {};
+	~player() {};
+	void Initialize()override;
+	void Terminate()override;
+	void Process(InputManager& input)override;
+	void Render()override;
 protected:
-	bool  isAnimEnd;
-	imputInf _imputInf;
+	int Handle;
+	bool isAnimEnd;
 	modelInf _modelInf;
-	Rserver* RS;
+	Rserver RS;
 };

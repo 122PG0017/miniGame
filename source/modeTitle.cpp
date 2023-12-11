@@ -1,58 +1,40 @@
-#include <fstream>
-#include <sstream>
-#include"modeTitle.h"
-#include"modeTest.h"
+
+using namespace AppFrame;
 using namespace model;
-bool modeTitle::save(const char* dir, valData* _val)
-{
-	std::vector<std::string> _data;
-	int points = _val->points;
-	fileIO::loadCSV(&_data, dir, false);
-
-	for (int i = 0; i < _data.size(); i++)
-	{
-		if (_data[i].find("//") != std::string::npos)
-		{
-			continue;
-		}
-
-		
-	}
-	std::string insStr = "";
-	for (auto insData : _data) { insStr += insData + "\n"; }
-	std::ofstream ofs(dir);
-	ofs << insStr;
-	ofs.close();
-
-	return true;
-}
-
-bool modeTitle::loadData(const char* dir, valData* _val)
-{
-	std::vector<std::string> _data;
-	fileIO::loadCSV(&_data, dir, false);
-
-	return true;
-}
 
 bool	modeTitle::Initialize()
 {
-	_cg = _modeServer->RS.loadGraphR("resource/tmp/sky.png");
+	_cg = RS.loadGraphR("resource/tmp/sky.png");
 
 	return true;
 }
 
-bool	modeTitle::Process(InputManager& input)
+bool modeTitle::Process(InputManager& input)
 {
-
-	if (isPut == 1 && !CheckHitKeyAll() || isPut == 0 ) { isPut = 2; }
-	if ((_imputInf._gTrgb[KEY_INPUT_RETURN] || _imputInf._gTrgp[XINPUT_BUTTON_A]) && isPut == 2)
-	{
-		StopMusic();
-		//PlaySoundMem(titleCallHaldle[rand() % 7], DX_PLAYTYPE_BACK);
-		_modeServer->Add(std::make_unique<ModeTest>(_modeServer), 1,"test");
-		return false;
+	if (input.GetXboxUp(InputState::Pressed)) {
+		--_select;
 	}
+
+	if (input.GetXboxDown(InputState::Pressed)) {
+		++_select;
+	}
+
+	_select = std::clamp(_select, 0, 1);
+
+
+	if ((input.GetKeyEnter(InputState::Pressed) || input.GetXboxA(InputState::Pressed)==true))
+	{
+		switch (_select)
+		{
+		case 0:
+			break;
+		case 1:
+			StopMusic();
+			ModeServer::GetInstance()->Add(std::make_unique<modeGame>(), 1, "game");
+			return false;
+		}
+	}
+
 	return true;
 }
 

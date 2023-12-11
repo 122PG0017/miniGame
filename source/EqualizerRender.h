@@ -2,7 +2,7 @@
  * \file   EqualizerRender.h
  * \brief  ‰¹º‚Ìü”g”–ˆ‚Ì‰¹—Ê‚ğ•`‰æ‚·‚é‹@”\
  *
- * \author “y‹«‘¾˜Y
+ * \author ¼“c—T
  * \date   March 2023
  *********************************************************************/
 #pragma once
