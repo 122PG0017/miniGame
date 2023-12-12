@@ -3,9 +3,7 @@
 class modeTitle : public AppFrame::ModeBase
 {
 public:
-	modeTitle() {};
-	~modeTitle() {};
-
+	modeTitle();
 	bool Initialize() override;
 	bool Terminate() override;
 	bool Process(InputManager& input) override;

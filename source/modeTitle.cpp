@@ -2,6 +2,10 @@
 using namespace AppFrame;
 using namespace model;
 
+modeTitle::modeTitle():_cg{0},_select{0}
+{
+}
+
 bool	modeTitle::Initialize()
 {
 	_cg = RS.loadGraphR("resource/tmp/sky.png");

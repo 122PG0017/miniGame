@@ -2,6 +2,7 @@
 
 class modeGame:public AppFrame::ModeBase
 {
+public:
 	modeGame() {};
 	~modeGame() {};
 	bool Initialize() override;

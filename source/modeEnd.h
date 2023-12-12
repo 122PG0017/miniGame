@@ -1,4 +1,5 @@
 #pragma once
+
 class modeEnd :public AppFrame::ModeBase
 {
 	modeEnd() {};
