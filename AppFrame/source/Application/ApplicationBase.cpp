@@ -6,6 +6,7 @@
  * \date   March 2023
  *********************************************************************/
 #include "ApplicationBase.h"
+#include "../AppFrame/source/Mode/ModeServer.h"
 #include "../AppFrame/source/object/inputManager.h"
 #include "../AppFrame/source/ResourceServer/SoundServer.h"
 
@@ -13,7 +14,12 @@ namespace AppFrame {
 
 	ApplicationBase* ApplicationBase::_lpInstance = NULL;
 
-	ApplicationBase::ApplicationBase() { _lpInstance = this; }
+	ApplicationBase::ApplicationBase()
+	{
+		_lpInstance = this;
+		_modeServer = nullptr;
+		_inputManager = nullptr;
+	}
 
 	ApplicationBase::~ApplicationBase() {}
 
@@ -62,7 +68,7 @@ namespace AppFrame {
 		srand((unsigned int)time(NULL));
 
 		// モードサーバの初期化
-		//_modeServer = ms;
+		_modeServer.reset(new ModeServer);
 		//インプットマネージャーの初期化
 		_inputManager.reset(new InputManager);
 
