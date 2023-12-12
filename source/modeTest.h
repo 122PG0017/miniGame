@@ -1,4 +1,3 @@
-#pragma once
 /*****************************************************************//**
  * \file   ModeTest.h
  * \brief  モードの実装例です。ゲーム中では使用しない。
@@ -8,9 +7,9 @@
  *********************************************************************/
 #pragma once
 
-//using namespace AppFrame;
+using namespace AppFrame;
 
-class ModeTest : public ModeBase
+class ModeTest : public AppFrame::ModeBase
 {
 public:
     ModeTest() {};

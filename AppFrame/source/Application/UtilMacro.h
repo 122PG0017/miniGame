@@ -5,4 +5,5 @@
  * \author ŽR–{ä»‹v
  * \date   March 2023
  *********************************************************************/
+#pragma once
 #define	SAFE_DELETE(x)	if(x){delete x;x=NULL;}

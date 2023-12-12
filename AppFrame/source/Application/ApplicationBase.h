@@ -5,6 +5,7 @@
  * \author ŽR–{ä»‹v
  * \date   March 2023
  *********************************************************************/
+#pragma once
 #include "DxLib.h"
 //#include "EffekseerForDXLib.h"
 #include <stdio.h>

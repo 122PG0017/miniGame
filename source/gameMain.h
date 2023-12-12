@@ -1,10 +1,12 @@
 #pragma once
 #include<memory>
 
-class gameMain : public ApplicationBase
+class gameMain : public AppFrame::ApplicationBase
 {
-	typedef ApplicationBase base;
+	typedef AppFrame::ApplicationBase base;
 public:
+	gameMain() {};
+	~gameMain() {};
 	bool Initialize(HINSTANCE hInstance) override;
 	bool Terminate() override;
 	bool Input() override;
@@ -22,8 +24,9 @@ protected:
 	int LightHandle01, LightHandle02, shadowMapHandle, animIndexOld;
 	float spd, cameraDir, cameraHigh;
 	VECTOR cameraPos, cameraFor;
-	modelInf plMI, stage;
+	//modelInf plMI, stage;
 	std::string NS;
 
 	bool debugMode = true;
+public:
 };

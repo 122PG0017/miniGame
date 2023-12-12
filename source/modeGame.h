@@ -1,6 +1,6 @@
 #pragma once
 
-class modeGame:public ModeBase
+class modeGame:public AppFrame::ModeBase
 {
 	modeGame() {};
 	~modeGame() {};

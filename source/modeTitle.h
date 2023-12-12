@@ -1,6 +1,6 @@
 #pragma once
 
-class modeTitle : public ModeBase
+class modeTitle : public AppFrame::ModeBase
 {
 public:
 	modeTitle() {};
