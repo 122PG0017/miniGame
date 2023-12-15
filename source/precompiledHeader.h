@@ -1,6 +1,6 @@
 #pragma once
 //AppFrame側のインクルード
-#include"appframe.h"
+#include"../AppFrame/source/appframe.h"
 
 //標準ライブラリ
 #include <sstream>
