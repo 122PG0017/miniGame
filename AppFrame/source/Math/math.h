@@ -1,5 +1,5 @@
 #pragma once
-#include<../AppFrame/source/appframe.h>
+#include <DxLib.h>
 #include <cmath>
 #include <iostream>
 #include <random>

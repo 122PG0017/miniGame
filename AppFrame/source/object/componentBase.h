@@ -1,6 +1,7 @@
 #pragma once
-#include"../appframe.h"
+#include <DxLib.h>
 #include"inputManager.h"
+
 namespace AppFrame {
     class ObjectBase;
 

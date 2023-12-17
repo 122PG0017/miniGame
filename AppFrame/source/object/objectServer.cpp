@@ -8,7 +8,8 @@
  *********************************************************************/
 #include "ObjectServer.h"
 #include "ObjectBase.h"
-#include "../AppFrame/source/appframe.h"
+#include "../AppFrame/source/Mode/ModeBase.h"
+#include "../AppFrame/source/Application/ApplicationBase.h"
 //#include "BlurRenderer.h"
 //#include "ChangeScreen.h"
 

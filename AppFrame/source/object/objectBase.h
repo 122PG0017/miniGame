@@ -1,10 +1,10 @@
 #pragma once
-#include"../appframe.h"
+#include <DxLib.h>
 #include <string>
 #include <map>
 #include <memory>
 #include <typeindex>
-#include"math.h"
+#include"../AppFrame/source/Math/math.h"
 
 namespace AppFrame {
     class InputManager;

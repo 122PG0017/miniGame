@@ -1,10 +1,10 @@
 #pragma once
+#include <DxLib.h>
 #include <utility>
 #include <array>
 #include <map>
 #include <vector>
-#include<../AppFrame/source/appframe.h>
-#include"math.h"
+#include"../AppFrame/source/Math/math.h"
 //#include "AppFrameMath.h"
 namespace AppFrame {
 	//キーの入力状態　押しているか、押した瞬間か、離した瞬間か
