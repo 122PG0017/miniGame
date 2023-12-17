@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <map>
 //--計算用
-#include"Math.h"
+#include"math.h"
 //picojson
 #include "picojson/picojson.h"
 //メイン
@@ -38,7 +38,7 @@
 //--プレイヤー
 #include "Player.h"
 //カメラ
-//#include "Camera.h"
+#include "camera.h"
 //--UI用ターゲットオブジェクト
 //--ターゲットオブジェクト用レティクルクラス
 

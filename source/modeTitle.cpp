@@ -15,11 +15,11 @@ bool	modeTitle::Initialize()
 
 bool modeTitle::Process(InputManager& input)
 {
-	if (input.GetXboxUp(InputState::Pressed)) {
+	if (input.GetXboxUp(InputState::Pressed)||input.GetKeyUp(InputState::Pressed)) {
 		--_select;
 	}
 
-	if (input.GetXboxDown(InputState::Pressed)) {
+	if (input.GetXboxDown(InputState::Pressed) || input.GetKeyDown(InputState::Pressed)) {
 		++_select;
 	}
 

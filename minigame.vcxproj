@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\camera.h" />
     <ClInclude Include="source\gameMain.h" />
     <ClInclude Include="source\gameObjectBase.h" />
     <ClInclude Include="source\modeEnd.h" />
@@ -29,6 +30,7 @@
     <ClInclude Include="source\precompiledHeader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\camera.cpp" />
     <ClCompile Include="source\gameMain.cpp" />
     <ClCompile Include="source\gameObjectBase.cpp" />
     <ClCompile Include="source\modeEnd.cpp" />

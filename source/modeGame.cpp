@@ -5,9 +5,7 @@ bool modeGame::Initialize()
 {
     if (!ModeBase::Initialize()) { return false; }
 
-    ////テストオブジェクトの追加
     _objectServer->Add(std::make_unique<player>());
-    //modelImport("resource/Knight/MV1/enemy_1_.mv1", 1.0f, &_modelInf, &RS);
 
     Handle = RS.loadGraphR("resource/tmp/Dora.png");
 
@@ -41,9 +39,6 @@ bool modeGame::Render()
 {
     ModeBase::Render();
     _objectServer->Render();
-
-    //isAnimEnd = modelRender(&_modelInf, 1, 1);
-    //drawCube(VECTOR(0, 0, 0), VECTOR(100, 100, 100), GetColorU8(0, 0, 0, 0), GetColorU8(0, 0, 0, 0));
 
     drawBPolygon(VECTOR(600, 0, 400), VECTOR(600, 0, -400), VECTOR(-600, 0, 400), VECTOR(-600, 0, -400), Handle);
 

@@ -13,6 +13,9 @@
     <Filter Include="System">
       <UniqueIdentifier>{e3361004-0386-4a29-b863-8643de4291b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\camera">
+      <UniqueIdentifier>{f8287806-90a8-4312-a6d4-27294e54feb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\modeEnd.h">
@@ -39,6 +42,9 @@
     <ClInclude Include="source\precompiledHeader.h">
       <Filter>Application</Filter>
     </ClInclude>
+    <ClInclude Include="source\camera.h">
+      <Filter>Object\camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\modeEnd.cpp">
@@ -64,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="source\gameMain.cpp">
       <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="source\camera.cpp">
+      <Filter>Object\camera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
