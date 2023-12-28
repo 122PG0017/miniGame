@@ -63,6 +63,9 @@
     <ClCompile Include="source\object\inputManager.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="source\object\componentMV1.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Application\ApplicationBase.h">
@@ -84,9 +87,6 @@
     <ClInclude Include="source\ResourceServer\ResourceServer.h">
       <Filter>ResourceServer</Filter>
     </ClInclude>
-    <ClInclude Include="source\modelManager\modelManager.h">
-      <Filter>modelManager</Filter>
-    </ClInclude>
     <ClInclude Include="source\ResourceServer\SoundServer.h">
       <Filter>ResourceServer</Filter>
     </ClInclude>
@@ -104,6 +104,12 @@
     </ClInclude>
     <ClInclude Include="source\object\inputManager.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\componentMV1.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="source\modelManager\modelManager.h">
+      <Filter>modelManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

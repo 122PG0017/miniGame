@@ -10,7 +10,7 @@ namespace AppFrame {
     {
     }
 
-    bool ComponentBase::Init()
+    bool ComponentBase::Initialize()
     {
         return true;
     }

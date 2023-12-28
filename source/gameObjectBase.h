@@ -10,9 +10,9 @@
 class Player;
 using namespace AppFrame;
 
-class gameObjectBase :public ObjectBase {
+class GameObjectBase :public AppFrame::ObjectBase {
 public:
-    
+    void AddGameComponent(std::unique_ptr<GameComponentBase> component, int id = 0);
     /**  \brief プレイヤーのポインタを取得*/
-    //Player* GetPlayer();
+    Player* GetPlayer();
 };

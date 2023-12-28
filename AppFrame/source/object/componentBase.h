@@ -9,7 +9,7 @@ namespace AppFrame {
     public:
         ComponentBase();
         ~ComponentBase();
-        virtual bool Init();
+        virtual bool Initialize();
         virtual void Process(InputManager& input);
         virtual void Render();
         virtual void Debug();

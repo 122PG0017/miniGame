@@ -32,40 +32,44 @@ enum class CameraMode
 {
 	Player,
 	Enemy,
-	Game
+	Game,
+	Null
 };
 
-class camera : public gameObjectBase
+class CameraComponent : public GameComponentBase
 {
 public:
-	camera(Player& p, CameraMode initCam);
-	~camera();
-	void Initialize()override;
+	CameraComponent();
+	~CameraComponent();
+	bool Initialize()override;
 	void Process(InputManager& input)override;
 	void Render()override;
+	void Input(InputManager& input);
+	void Vibration();
 
-	//速度増減に合わせたfovの更新
-	void UpdateFov();
 	//プレイヤー追従カメラの更新
-	void UpdatePlayerCamera(InputManager& input, float deltaTime, float camSpd);
-	//他カメラモードからプレイヤーカメラへ帰還する時の更新
-	//void UpdateReturn2PlayerCamera(InputManager& input, float deltaTime, float camSpd);
+	void ProcessPlayerCamera(InputManager& input, float deltaTime, float camSpd);
 
+	//カメラ位置設定
+	void SetPosition(VECTOR position) { _position = position; };
+	//カメラ位置取得
+	inline VECTOR GetPosition()const { return _position; };
 	void SetCameraMode(CameraMode cam) {
-		_cameraMode = cam; _cameraDistanceParameter = 0;
+		_cameraMode = cam;
 	}
-
 private:
 	float _fov_parameter;//fovパラメーター
 	float _fov;          //視野角
-	float _cameraDistanceParameter;//カメラ距離パラメーター
-	float _levelIntroDuctionParameter;//ステージ紹介カメラの回転パラメーター
-
-	CameraMode _cameraMode;//カメラモード
-
-	VECTOR _target;//注視点
-	VECTOR _oldPosition, _oldTarget, _oldUp, _oldRotation;//帰還カメラ用の古いカメラ情報ステータス
+	VECTOR _position;
+	VECTOR _target;  //注視点
+	VECTOR _oldPosition, _oldTarget, _oldUp, _oldRotation;
 	VECTOR _up;//カメラの上方向ベクトル
 
-	Player& _p;//プレイヤー
+	double _upDownAngle{ 0.0 };                                        //!< カメラの上下の回転の角度
+	double _sideAngle{ 0.0 };                                          //!< カメラの左右の回転の角度
+	double _vibrationVelocity{ 0.0 };                                  //!< 振動させるときに使う速度
+	double _vibrationValue{ 60.0 };                                    //!< 振動した時のYの位置
+
+	CameraMode _cameraMode;//カメラモード
+	gameMain _gm;
 };

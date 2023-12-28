@@ -14,14 +14,14 @@ namespace AppFrame {
 		, _mouseOldY{ 0 }
 		, _mouseWheel{ 0 }
 	{
-		Init();
+		Initialize();
 	}
 
 	InputManager::~InputManager() {
 
 	}
 
-	void InputManager::Init() {
+	void InputManager::Initialize() {
 		GetHitKeyStateAll(_keyboardKeys);
 		GetMousePoint(&_mouseX, &_mouseY);
 		_mouse = GetMouseInput();

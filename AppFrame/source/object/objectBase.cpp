@@ -63,7 +63,7 @@ namespace AppFrame {
     {
         component->SetParent(this);
 
-        if (component->Init()) {
+        if (component->Initialize()) {
             _components[{typeid(*component), id}] = (std::move(component));
         }
     }

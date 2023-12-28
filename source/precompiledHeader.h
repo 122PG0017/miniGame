@@ -27,6 +27,8 @@
 #include "modeGame.h"
 #include "modeEnd.h"
 //コンポーネント
+#include "gameComponentBase.h"
+#include "componentCamera.h"
 
 //オブジェクト
 //--基底クラス
@@ -38,7 +40,7 @@
 //--プレイヤー
 #include "Player.h"
 //カメラ
-#include "camera.h"
+//#include "camera.h"
 //--UI用ターゲットオブジェクト
 //--ターゲットオブジェクト用レティクルクラス
 

@@ -18,7 +18,7 @@ namespace AppFrame {
 	public:
 		InputManager();
 		virtual ~InputManager();
-		virtual void Init();
+		virtual void Initialize();
 
 		//–ˆƒtƒŒ[ƒ€ŒÄ‚Ño‚·“ü—Íæ“¾ŠÖ”
 		void Input();

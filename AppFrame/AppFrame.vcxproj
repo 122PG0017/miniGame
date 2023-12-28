@@ -187,6 +187,7 @@
     <ClCompile Include="source\Mode\ModeBase.cpp" />
     <ClCompile Include="source\Mode\ModeServer.cpp" />
     <ClCompile Include="source\object\componentBase.cpp" />
+    <ClCompile Include="source\object\componentMV1.cpp" />
     <ClCompile Include="source\object\inputManager.cpp" />
     <ClCompile Include="source\object\objectBase.cpp" />
     <ClCompile Include="source\object\objectServer.cpp" />
@@ -203,6 +204,7 @@
     <ClInclude Include="source\Mode\ModeBase.h" />
     <ClInclude Include="source\Mode\ModeServer.h" />
     <ClInclude Include="source\object\componentBase.h" />
+    <ClInclude Include="source\object\componentMV1.h" />
     <ClInclude Include="source\object\inputManager.h" />
     <ClInclude Include="source\object\objectBase.h" />
     <ClInclude Include="source\object\objectServer.h" />

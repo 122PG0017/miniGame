@@ -5,7 +5,7 @@ bool modeGame::Initialize()
 {
     if (!ModeBase::Initialize()) { return false; }
 
-    _objectServer->Add(std::make_unique<player>());
+    _objectServer->Add(std::make_unique<Player>());
 
     Handle = RS.loadGraphR("resource/tmp/Dora.png");
 

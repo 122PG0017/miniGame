@@ -1,5 +1,4 @@
 #pragma once
-
 namespace PLAYER {
 	constexpr float SIZE = 0.3f;  //スケール倍率
 	constexpr int SIDE_NUMBER = 6;//面の数
@@ -38,12 +37,12 @@ enum class Status
 	MAX,     //ステータスの個数//MAXは配列に登録しない
 };
 
-class player : public gameObjectBase
+class Player : public GameObjectBase
 {
 public:
 	using ObjectBase::AddComponent;
-	player();
-	~player();
+	Player();
+	~Player();
 	void Initialize()override;
 	void Terminate()override;
 	void Process(InputManager& input)override;
