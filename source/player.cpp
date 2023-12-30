@@ -22,8 +22,8 @@ void Player::Initialize()
 	AddComponent(std::move(mv1Component));
 
 	auto camera = std::make_unique<CameraComponent>();
-	AddComponent(std::move(camera));
 	camera->SetCameraMode(CameraMode::Player);
+	AddGameComponent(std::move(camera));
 }
 
 void Player::Terminate()

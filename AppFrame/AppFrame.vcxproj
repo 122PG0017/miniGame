@@ -182,7 +182,10 @@
     <ClCompile Include="source\Application\ApplicationBase.cpp" />
     <ClCompile Include="source\Application\WinMain.cpp" />
     <ClCompile Include="source\CFile\CFile.cpp" />
+    <ClCompile Include="source\Math\DxUtility.cpp" />
     <ClCompile Include="source\Math\math.cpp" />
+    <ClCompile Include="source\Math\Matrix44.cpp" />
+    <ClCompile Include="source\Math\Vector4.cpp" />
     <ClCompile Include="source\modelManager\modelManager.cpp" />
     <ClCompile Include="source\Mode\ModeBase.cpp" />
     <ClCompile Include="source\Mode\ModeServer.cpp" />
@@ -199,7 +202,10 @@
     <ClInclude Include="source\Application\ApplicationBase.h" />
     <ClInclude Include="source\Application\UtilMacro.h" />
     <ClInclude Include="source\CFile\CFile.h" />
+    <ClInclude Include="source\Math\DxUtility.h" />
     <ClInclude Include="source\Math\math.h" />
+    <ClInclude Include="source\Math\Matrix44.h" />
+    <ClInclude Include="source\Math\Vector4.h" />
     <ClInclude Include="source\modelManager\modelManager.h" />
     <ClInclude Include="source\Mode\ModeBase.h" />
     <ClInclude Include="source\Mode\ModeServer.h" />

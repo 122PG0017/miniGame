@@ -44,8 +44,8 @@ public:
 	bool Initialize()override;
 	void Process(InputManager& input)override;
 	void Render()override;
-	void Input(InputManager& input);
-	void Vibration();
+	void PadInput(InputManager& input);
+	
 
 	//プレイヤー追従カメラの更新
 	void ProcessPlayerCamera(InputManager& input, float deltaTime, float camSpd);
@@ -54,12 +54,34 @@ public:
 	void SetPosition(VECTOR position) { _position = position; };
 	//カメラ位置取得
 	inline VECTOR GetPosition()const { return _position; };
+	/**
+    * \brief カメラの注視点を設定する
+    * \param target 注視点になる座標
+    * \param forward カメラの向き
+    */
+	inline void SetTarget(VECTOR target) { _target = target; }
+	/**
+    * \brief カメラの注視点の取得
+    * \return カメラの注視点
+	*/
+	inline VECTOR GetTarget() const { return _target; }
+	/**
+	 * \brief 注視点方向のベクトルの取得
+	 * \return 注視点方向の単位ベクトル
+	 */
+	Math::Vector4 GetForward() const {
+		auto vec = Math::ToMath(_target) - Math::ToMath(_position);
+		vec.Normalized();
+		return vec;
+	}
+
 	void SetCameraMode(CameraMode cam) {
 		_cameraMode = cam;
 	}
 private:
 	float _fov_parameter;//fovパラメーター
 	float _fov;          //視野角
+	float _cameraDistanceParameter;//カメラ距離パラメーター
 	VECTOR _position;
 	VECTOR _target;  //注視点
 	VECTOR _oldPosition, _oldTarget, _oldUp, _oldRotation;
@@ -67,8 +89,7 @@ private:
 
 	double _upDownAngle{ 0.0 };                                        //!< カメラの上下の回転の角度
 	double _sideAngle{ 0.0 };                                          //!< カメラの左右の回転の角度
-	double _vibrationVelocity{ 0.0 };                                  //!< 振動させるときに使う速度
-	double _vibrationValue{ 60.0 };                                    //!< 振動した時のYの位置
+	Math::Matrix44 _anyAxisMatrix{ Math::Matrix44() };                             //!< ベクトルを90度回転させるためのマトリクス
 
 	CameraMode _cameraMode;//カメラモード
 	gameMain _gm;

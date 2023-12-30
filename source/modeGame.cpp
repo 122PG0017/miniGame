@@ -9,13 +9,13 @@ bool modeGame::Initialize()
 
     Handle = RS.loadGraphR("resource/tmp/Dora.png");
 
-    SetUseZBuffer3D(true);
-    SetWriteZBuffer3D(true);
-    SetUseLighting(false);
+   SetUseZBuffer3D(true);
+   SetWriteZBuffer3D(true);
+   SetUseLighting(false);
     //カメラのセット
-    SetCameraPositionAndTarget_UpVecY({ 0.0f, 500.0f, 50.0f }, { 0.0f, 0.0f, 0.0f });
+    //SetCameraPositionAndTarget_UpVecY({ 0.0f, 500.0f, 50.0f }, { 0.0f, 0.0f, 0.0f });
     //ライトの設定
-    //ChangeLightTypeDir({ 0.1f,1.0f,0.5f });
+    ChangeLightTypeDir({ 0.1f,1.0f,0.5f });
     SetLightDifColor({ 2.0f, 2.0f, 2.0f, 0.0f });
 
     return true;

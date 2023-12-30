@@ -29,10 +29,12 @@ namespace AppFrame {
         virtual void SetPosition(int positionX, int positionY) { _position = { static_cast<float>(positionX), static_cast<float>(positionY), 0.0f }; }
         virtual void SetRotation(VECTOR rotation) { _rotation = rotation; }
         virtual void SetScale(VECTOR scale) { _scale = scale; }
-        MATRIX GetPositonMatrix()const { return _positionMatrix; }
+        MATRIX GetPositionMatrix()const { return _positionMatrix; }
         MATRIX GetRotationMatrix()const { return _rotationMatrix; }
         MATRIX GetScaleMatrix()const { return _scaleMatrix; }
         MATRIX GetTransform()const { return _transrom; }
+        virtual void SetPositionMatrix(MATRIX posmatrix) { _positionMatrix = posmatrix; }
+        virtual void SetRotationMatrix(MATRIX rotmatrix) { _rotationMatrix = rotmatrix; }
 
         virtual bool IsDead()const { return _dead; }
         virtual void Dead() { _dead = true; }
@@ -47,6 +49,9 @@ namespace AppFrame {
         void SetName(std::string string) { _name = string; }
         ModeBase* GetMode()const { return _mode; }
         void SetMode(ModeBase* mode) { _mode = mode; }
+
+        virtual float GetSpdParam() { return _spdParam; }
+        float _spdParam;                         //加速度倍率
 
         //同型コンポーネントを追加する際は異なるIDを設定する
         virtual void AddComponent(std::unique_ptr<ComponentBase> component, int id = 0);

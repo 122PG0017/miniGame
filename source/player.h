@@ -48,11 +48,11 @@ public:
 	void Process(InputManager& input)override;
 	void Render()override;
 
-	float GetSpdParam() { return _spdParam; }
+	//float GetSpdParam() { return _spdParam; }
 protected:
 	int Handle;
 	bool isAnimEnd;
-	float _spdParam;                         //‰Á‘¬“x”{—¦
+	//float _spdParam;                         //‰Á‘¬“x”{—¦
 	modelInf _modelInf;
 	Rserver RS;
 };
