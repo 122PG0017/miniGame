@@ -10,7 +10,7 @@ namespace CAMERA
 	constexpr VECTOR TARGET_FPS_CAMERA = { 0.0f, 0.0f, CAMERA::LOOK_FORWARD_Z }; //距離座標
 	//TPS
 	constexpr float DISTANCE_TPS_Z = 100.0f;     //TPS始点時のプレイヤーとのZ軸距離
-	constexpr float DISTANCE_TPS_Y = 50.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
+	constexpr float DISTANCE_TPS_Y = 500.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
 	constexpr VECTOR DISTANCE_TPS = { 0.0f, DISTANCE_TPS_Y, CAMERA::DISTANCE_TPS_Z }; //距離座標
 	//FREE_LOOK
 	constexpr float DISTANCE_FREE_LOOK_Z = 450.0f;         //フリールック始点時のZ軸距離
@@ -45,6 +45,8 @@ public:
 	void Process(InputManager& input)override;
 	void Render()override;
 	void PadInput(InputManager& input);
+	void KeyBoardInput(InputManager& input);
+	void MouseInput(InputManager& input);
 	
 
 	//プレイヤー追従カメラの更新
@@ -86,6 +88,12 @@ private:
 	VECTOR _target;  //注視点
 	VECTOR _oldPosition, _oldTarget, _oldUp, _oldRotation;
 	VECTOR _up;//カメラの上方向ベクトル
+
+	Math::Vector4 _plyToTarget{ Math::Vector4(0.0, 0.0, 0.0) };
+	Math::Vector4  _plyToPos{ Math::Vector4(0.0, 0.0, 0.0) };
+	VECTOR _firstPlyToTarget;
+	VECTOR _firstPlyToPos;
+	Math::Vector4 _posToTarget{ Math::Vector4(0.0, 0.0, 0.0) };                    //!< カメラが生成された時のカメラの位置から注視点へのベクトル
 
 	double _upDownAngle{ 0.0 };                                        //!< カメラの上下の回転の角度
 	double _sideAngle{ 0.0 };                                          //!< カメラの左右の回転の角度

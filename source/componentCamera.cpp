@@ -22,8 +22,22 @@ CameraComponent::~CameraComponent()
 
 bool CameraComponent::Initialize()
 { 
-    // ベクトルを90度回転させるマトリクスの作成
-    _anyAxisMatrix.RotateY(90.0, true);
+    //VECTOR playerPosition = _parent->GetPosition();
+    //// プレイヤーからのカメラの注視点へのベクトルを作成
+    //_firstPlyToTarget =VSub(_target ,playerPosition);
+    //// プレイヤーからのカメラの位置へのベクトルを作成
+    //_firstPlyToPos = VSub(_position , playerPosition);
+    //// ベクトルを90度回転させるマトリクスの作成
+    //_anyAxisMatrix.RotateY(90.0, true);
+    //// カメラの位置から注視点へのベクトルの作成
+    //Math::Vector4 posToTarget = Math::ToMath(_target) - Math::ToMath(_position);
+    //posToTarget.Normalized();
+    //_posToTarget = posToTarget * 300.0;
+    //// ベクトルを90度回転させるマトリクスの作成
+    //_anyAxisMatrix.RotateY(90.0, true);
+    
+   
+
 	//カメラ描画距離の設定
 	DxLib::SetCameraNearFar(CAMERA::NEAR_CAMERA, CAMERA::FAR_CAMERA);
 	return true;
@@ -31,7 +45,7 @@ bool CameraComponent::Initialize()
 
 void CameraComponent::Process(InputManager& input)
 {
-    PadInput(input);
+    //PadInput(input);
 	//カメラ速度倍率
 	float cameraSpd = CAMERA::SPD_DEFAULT_RETURN_TO_PLAYER_PARAMETER;
 	float deltaTime = _parent->GetMode()->GetStepTm() * 0.001f;
@@ -65,8 +79,8 @@ void CameraComponent::Process(InputManager& input)
 
 void CameraComponent::Render()
 {
-    SetCameraPositionAndTarget_UpVecY({ 0.0f, 500.0f, 50.0f }, { 0.0f, 0.0f, 0.0f });
-	//DxLib::SetCameraPositionAndTargetAndUpVec(_position,_target, _up);
+    //SetCameraPositionAndTarget_UpVecY({ 0.0f, 500.0f, 50.0f }, { 0.0f, 0.0f, 0.0f });
+	DxLib::SetCameraPositionAndTargetAndUpVec(_position,_target, _up);
 }
 
 
@@ -85,7 +99,7 @@ void CameraComponent::ProcessPlayerCamera(InputManager& input, float deltaTime, 
     //カメラタイプにより距離成分変動
     float cameraDistanceChangeSpd = CAMERA::SPD_DISTANCE_CHANGE * deltaTime;//カメラ距離成分の修正速度
     //※三項演算子 cameraType==Fpsなら変化速度はマイナス方向、falseならプラス方向の変化になる
-    cameraDistanceChangeSpd =-1 * cameraDistanceChangeSpd;
+    cameraDistanceChangeSpd = cameraDistanceChangeSpd;
     float max = 1.0f;
 
     _cameraDistanceParameter += cameraDistanceChangeSpd;
@@ -95,6 +109,16 @@ void CameraComponent::ProcessPlayerCamera(InputManager& input, float deltaTime, 
     _up = VTransform(Math::VUp(), playerRotationMatrix);//上方向のベクトル
     _position = Math::Lerp(playerPosition, positionNotFpsCamera, _cameraDistanceParameter);
     _target = Math::Lerp(targetFPS, targetNotFps, _cameraDistanceParameter);
+
+
+    // プレイヤーの位置からの注視点へのベクトルを作成
+    //_plyToTarget = Math::ToMath(_firstPlyToTarget) * Math::ToMath(playerRotationMatrix);
+    // プレイヤーからカメラの位置へのベクトルを作成
+    //_plyToPos = Math::ToMath(_firstPlyToPos) * Math::ToMath(playerRotationMatrix);
+    // プレイヤーの位置からカメラの注視点を設定する
+    //_target = VAdd(playerPosition , Math::ToDX(_plyToTarget));
+    // プレイヤーの位置からカメラの位置を設定する
+    //_position = VAdd(playerPosition , Math::ToDX(_plyToPos));
 }
 
 void CameraComponent::PadInput(InputManager& input)
@@ -301,4 +325,28 @@ void CameraComponent::PadInput(InputManager& input)
     // 上下の回転と左右の回転を合わせたマトリクスを作成
     auto _rotateMatrix = rotateSide * rotateUpDown;
     _parent->SetRotationMatrix(Math::ToDX(_rotateMatrix));
+}
+
+void CameraComponent::KeyBoardInput(InputManager& input)
+{
+    if (input.GetKeyUp(InputState::Hold))
+    {
+        //_upDownAngle
+    }
+    else if (input.GetKeyDown(InputState::Hold))
+    {
+
+    }
+    if (input.GetKeyRight(InputState::Hold))
+    {
+
+    }
+    else if (input.GetKeyLeft(InputState::Hold))
+    {
+
+    }
+}
+
+void CameraComponent::MouseInput(InputManager& input)
+{
 }
