@@ -22,6 +22,9 @@
     <Filter Include="Object">
       <UniqueIdentifier>{29a51fe8-5c65-40d6-aae6-ec4a42923133}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\component">
+      <UniqueIdentifier>{a48546d8-5dc1-4a6a-b138-d83cc5ba0ac1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Application\ApplicationBase.cpp">
@@ -57,13 +60,7 @@
     <ClCompile Include="source\object\objectServer.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="source\object\componentBase.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="source\object\inputManager.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="source\object\componentMV1.cpp">
       <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="source\Math\Matrix44.cpp">
@@ -74,6 +71,21 @@
     </ClCompile>
     <ClCompile Include="source\Math\DxUtility.cpp">
       <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\AABBCollisionComponent.cpp">
+      <Filter>Object\component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\SphereCollisionComponent.cpp">
+      <Filter>Object\component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\componentBase.cpp">
+      <Filter>Object\component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\componentMV1.cpp">
+      <Filter>Object\component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\object\CheckCollision.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,13 +120,7 @@
     <ClInclude Include="source\object\objectServer.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="source\object\componentBase.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="source\object\inputManager.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="source\object\componentMV1.h">
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="source\modelManager\modelManager.h">
@@ -128,6 +134,21 @@
     </ClInclude>
     <ClInclude Include="source\Math\DxUtility.h">
       <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\AABBCollisionComponent.h">
+      <Filter>Object\component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\SphereCollisionComponent.h">
+      <Filter>Object\component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\componentBase.h">
+      <Filter>Object\component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\componentMV1.h">
+      <Filter>Object\component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object\CheckCollision.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

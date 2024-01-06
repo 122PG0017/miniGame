@@ -39,10 +39,8 @@
 //#include "LevelBase.h"
 //--プレイヤー
 #include "Player.h"
-//カメラ
-//#include "camera.h"
-//--UI用ターゲットオブジェクト
-//--ターゲットオブジェクト用レティクルクラス
+//--エネミー
+#include "enemy.h"
 
 
 //--システム

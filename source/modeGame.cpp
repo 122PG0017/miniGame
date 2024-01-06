@@ -6,6 +6,7 @@ bool modeGame::Initialize()
     if (!ModeBase::Initialize()) { return false; }
 
     _objectServer->Add(std::make_unique<Player>());
+    _objectServer->Add(std::make_unique<Enemy>());
 
     Handle = RS.loadGraphR("resource/tmp/Dora.png");
 
@@ -40,7 +41,7 @@ bool modeGame::Render()
     ModeBase::Render();
     _objectServer->Render();
 
-    drawBPolygon(VECTOR(600, 0, 400), VECTOR(600, 0, -400), VECTOR(-600, 0, 400), VECTOR(-600, 0, -400), Handle);
+    //drawBPolygon(VECTOR(600, 0, 400), VECTOR(600, 0, -400), VECTOR(-600, 0, 400), VECTOR(-600, 0, -400), Handle);
 
     return true;
 }

@@ -48,6 +48,9 @@
     <ClInclude Include="source\gameComponentBase.h">
       <Filter>Object\component</Filter>
     </ClInclude>
+    <ClInclude Include="source\enemy.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\modeEnd.cpp">
@@ -79,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="source\gameComponentBase.cpp">
       <Filter>Object\component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\enemy.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

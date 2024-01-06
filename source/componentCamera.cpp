@@ -51,8 +51,8 @@ void CameraComponent::Process(InputManager& input)
 	float deltaTime = _parent->GetMode()->GetStepTm() * 0.001f;
 
     // ビュー行列の設定
-    //auto cameraMatrix = GetCameraViewMatrix(_position, _target, _up);
-    //SetCameraViewMatrix(Math::ToDX(cameraMatrix));
+    auto cameraMatrix = GetCameraViewMatrix();
+    SetCameraViewMatrix(cameraMatrix);
 
     //ジャンプ時のfov増減
     float decFov = CAMERA::FOV_DEFAULT + ((CAMERA::FOV_MIN - CAMERA::FOV_DEFAULT) * (1.0f - _parent->GetSpdParam()));
@@ -86,6 +86,9 @@ void CameraComponent::Render()
 
 void CameraComponent::ProcessPlayerCamera(InputManager& input, float deltaTime, float camSpd)
 {
+
+    MouseInput(input);
+
     MATRIX playerRotationMatrix = _parent->GetRotationMatrix();
     VECTOR playerPosition = _parent->GetPosition();
     VECTOR distanceTps = CAMERA::DISTANCE_TPS;//TPSモードのカメラ座標
@@ -110,15 +113,6 @@ void CameraComponent::ProcessPlayerCamera(InputManager& input, float deltaTime, 
     _position = Math::Lerp(playerPosition, positionNotFpsCamera, _cameraDistanceParameter);
     _target = Math::Lerp(targetFPS, targetNotFps, _cameraDistanceParameter);
 
-
-    // プレイヤーの位置からの注視点へのベクトルを作成
-    //_plyToTarget = Math::ToMath(_firstPlyToTarget) * Math::ToMath(playerRotationMatrix);
-    // プレイヤーからカメラの位置へのベクトルを作成
-    //_plyToPos = Math::ToMath(_firstPlyToPos) * Math::ToMath(playerRotationMatrix);
-    // プレイヤーの位置からカメラの注視点を設定する
-    //_target = VAdd(playerPosition , Math::ToDX(_plyToTarget));
-    // プレイヤーの位置からカメラの位置を設定する
-    //_position = VAdd(playerPosition , Math::ToDX(_plyToPos));
 }
 
 void CameraComponent::PadInput(InputManager& input)
@@ -349,4 +343,21 @@ void CameraComponent::KeyBoardInput(InputManager& input)
 
 void CameraComponent::MouseInput(InputManager& input)
 {
+    int Disp_x;
+    int Disp_y;
+    GetWindowSize(&Disp_x,&Disp_y);
+    int mouse_x = Math::Clamp(input.GetMouseX() - Disp_x / 2, -120, 120) * 1 / _parent->GetMode()->GetCallPerFrame();
+    int mouse_y = Math::Clamp(input.GetMouseY() - Disp_y / 2, -120, 120) * 1 / _parent->GetMode()->GetCallPerFrame();
+    input.SetMouseX(Disp_x / 2);
+    input.SetMouseX(Disp_y / 2);
+    if (input.GetKeyAt(InputState::Hold)) 
+    {
+        SetMouseDispFlag(TRUE);
+    }
+    else
+    {
+        SetMouseDispFlag(FALSE);
+    }
+    MATRIX _rotMatrix = (DxLib::MGetRotX(mouse_x), DxLib::MGetRotY(mouse_y));
+    _parent->SetRotationMatrix(_rotMatrix);
 }

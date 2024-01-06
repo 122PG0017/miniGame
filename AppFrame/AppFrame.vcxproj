@@ -189,11 +189,14 @@
     <ClCompile Include="source\modelManager\modelManager.cpp" />
     <ClCompile Include="source\Mode\ModeBase.cpp" />
     <ClCompile Include="source\Mode\ModeServer.cpp" />
+    <ClCompile Include="source\object\AABBCollisionComponent.cpp" />
+    <ClCompile Include="source\object\CheckCollision.cpp" />
     <ClCompile Include="source\object\componentBase.cpp" />
     <ClCompile Include="source\object\componentMV1.cpp" />
     <ClCompile Include="source\object\inputManager.cpp" />
     <ClCompile Include="source\object\objectBase.cpp" />
     <ClCompile Include="source\object\objectServer.cpp" />
+    <ClCompile Include="source\object\SphereCollisionComponent.cpp" />
     <ClCompile Include="source\ResourceServer\ResourceServer.cpp" />
     <ClCompile Include="source\ResourceServer\SoundServer.cpp" />
   </ItemGroup>
@@ -209,11 +212,14 @@
     <ClInclude Include="source\modelManager\modelManager.h" />
     <ClInclude Include="source\Mode\ModeBase.h" />
     <ClInclude Include="source\Mode\ModeServer.h" />
+    <ClInclude Include="source\object\AABBCollisionComponent.h" />
+    <ClInclude Include="source\object\CheckCollision.h" />
     <ClInclude Include="source\object\componentBase.h" />
     <ClInclude Include="source\object\componentMV1.h" />
     <ClInclude Include="source\object\inputManager.h" />
     <ClInclude Include="source\object\objectBase.h" />
     <ClInclude Include="source\object\objectServer.h" />
+    <ClInclude Include="source\object\SphereCollisionComponent.h" />
     <ClInclude Include="source\ResourceServer\ResourceServer.h" />
     <ClInclude Include="source\ResourceServer\SoundServer.h" />
   </ItemGroup>
