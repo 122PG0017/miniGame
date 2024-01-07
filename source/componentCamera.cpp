@@ -54,9 +54,6 @@ void CameraComponent::Process(InputManager& input)
     auto cameraMatrix = GetCameraViewMatrix();
     SetCameraViewMatrix(cameraMatrix);
 
-    //ジャンプ時のfov増減
-    float decFov = CAMERA::FOV_DEFAULT + ((CAMERA::FOV_MIN - CAMERA::FOV_DEFAULT) * (1.0f - _parent->GetSpdParam()));
-    _fov += (decFov - _fov) * deltaTime * CAMERA::SPD_RETURN_FOV_CHANGE;
 
     //fovセット
     float accelerationFov = (CAMERA::FOV_MAX - CAMERA::FOV_DEFAULT) * _fov_parameter;
@@ -345,9 +342,10 @@ void CameraComponent::MouseInput(InputManager& input)
 {
     int Disp_x;
     int Disp_y;
+    int frame =60;
     GetWindowSize(&Disp_x,&Disp_y);
-    int mouse_x = Math::Clamp(input.GetMouseX() - Disp_x / 2, -120, 120) * 1 / _parent->GetMode()->GetCallPerFrame();
-    int mouse_y = Math::Clamp(input.GetMouseY() - Disp_y / 2, -120, 120) * 1 / _parent->GetMode()->GetCallPerFrame();
+    int mouse_x = Math::Clamp(input.GetMouseX() - Disp_x / 2, -120, 120) * 1 / frame;
+    int mouse_y = Math::Clamp(input.GetMouseY() - Disp_y / 2, -120, 120) * 1 / frame;
     input.SetMouseX(Disp_x / 2);
     input.SetMouseX(Disp_y / 2);
     if (input.GetKeyAt(InputState::Hold)) 

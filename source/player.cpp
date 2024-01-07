@@ -19,6 +19,7 @@ void Player::Initialize()
 
 	auto handle = MV1LoadModel("resource/Knight/MV1/enemy_1_.mv1");
 	auto mv1Component = std::make_unique<MV1Component>(handle);
+	mv1Component->SetAnimation(0);
 	AddComponent(std::move(mv1Component));
 
 	auto camera = std::make_unique<CameraComponent>();
@@ -35,9 +36,33 @@ void Player::Terminate()
 void Player::Process(InputManager& input)
 {
 	ObjectBase::Process(input);
+
+	float spd = 10.0;
+	auto dir = GetComponent<CameraComponent>()->GetRadian();
+	if(input.GetKeyW(InputState::Hold)){ PlayerMove(input,spd, dir); }
+	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input,spd, dir + 180.f); }
+	if (input.GetKeyD(InputState::Hold)) { PlayerMove(input,spd, dir + 90.f); }
+	if (input.GetKeyA(InputState::Hold)) { PlayerMove(input,spd, dir + 270.f); }
 }
 
 void Player::Render()
 {
 	ObjectBase::Render();
+}
+
+void Player::PlayerMove(InputManager& input, float speed, float dir)
+{
+	//設定処理
+	dir -= 180.f;
+	float radian = dir * DX_PI_F / 180.0f;
+	_position.x += sin(radian) * speed;
+	_position.z += cos(radian) * speed;
+
+	//キャラ移動時アニメーション変更処理
+	//if (isAnimChange)
+	//{
+		//animChange(PL_RUN, &_modelInf, true, true, false);//アニメーションを走りモーションに変更
+		//animSpd = 1.f;
+		//_modelInf.dir.y = _Dir + 180.f;
+	//}
 }

@@ -37,6 +37,7 @@
 //#include "TestObject.h"
 //--ステージ
 //#include "LevelBase.h"
+#include "skySphere.h"
 //--プレイヤー
 #include "Player.h"
 //--エネミー

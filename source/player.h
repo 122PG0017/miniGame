@@ -48,6 +48,8 @@ public:
 	void Process(InputManager& input)override;
 	void Render()override;
 
+	void PlayerMove(InputManager& input,float speed,float dir);
+
 	//float GetSpdParam() { return _spdParam; }
 protected:
 	int Handle;

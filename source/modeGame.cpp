@@ -5,6 +5,7 @@ bool modeGame::Initialize()
 {
     if (!ModeBase::Initialize()) { return false; }
 
+    _objectServer->Add(std::make_unique<SkySphere>());
     _objectServer->Add(std::make_unique<Player>());
     _objectServer->Add(std::make_unique<Enemy>());
 

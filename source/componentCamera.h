@@ -9,8 +9,8 @@ namespace CAMERA
 	constexpr float LOOK_FORWARD_Z = -30.0f;      //FPS時注視点がプレイヤーからどれだけ離れているか
 	constexpr VECTOR TARGET_FPS_CAMERA = { 0.0f, 0.0f, CAMERA::LOOK_FORWARD_Z }; //距離座標
 	//TPS
-	constexpr float DISTANCE_TPS_Z = 100.0f;     //TPS始点時のプレイヤーとのZ軸距離
-	constexpr float DISTANCE_TPS_Y = 500.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
+	constexpr float DISTANCE_TPS_Z = 300.0f;     //TPS始点時のプレイヤーとのZ軸距離
+	constexpr float DISTANCE_TPS_Y = 1000.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
 	constexpr VECTOR DISTANCE_TPS = { 0.0f, DISTANCE_TPS_Y, CAMERA::DISTANCE_TPS_Z }; //距離座標
 	//FREE_LOOK
 	constexpr float DISTANCE_FREE_LOOK_Z = 450.0f;         //フリールック始点時のZ軸距離
@@ -71,10 +71,17 @@ public:
 	 * \brief 注視点方向のベクトルの取得
 	 * \return 注視点方向の単位ベクトル
 	 */
-	Math::Vector4 GetForward() const {
+	Math::Vector4 GetForward() const 
+	{
 		auto vec = Math::ToMath(_target) - Math::ToMath(_position);
 		vec.Normalized();
 		return vec;
+	}
+	inline float GetRadian()const
+	{
+		auto vec = Math::ToDX(GetForward());
+		auto dir = (std::atan2(-vec.x, -vec.z) * 180.0f) / DX_PI_F;
+		return dir;
 	}
 
 	void SetCameraMode(CameraMode cam) {
