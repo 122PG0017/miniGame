@@ -25,6 +25,9 @@ void Player::Initialize()
 	auto camera = std::make_unique<CameraComponent>();
 	camera->SetCameraMode(CameraMode::Player);
 	AddGameComponent(std::move(camera));
+
+	auto col = std::make_unique<SphereCollisionComponent>();
+	AddComponent(std::move(col));
 }
 
 void Player::Terminate()
@@ -41,9 +44,9 @@ void Player::Process(InputManager& input)
 	float spd = 10.0;
 	auto dir = GetComponent<CameraComponent>()->GetRadian();
 	if (input.GetKeyW(InputState::Hold)) { PlayerMove(input, spd, dir); }
-	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input,spd, dir + 180.f); }
-	if (input.GetKeyD(InputState::Hold)) { PlayerMove(input,spd, dir + 90.f); }
-	if (input.GetKeyA(InputState::Hold)) { PlayerMove(input,spd, dir + 270.f); }
+	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input, spd, dir + 180.f); }
+	if (input.GetKeyD(InputState::Hold)) { PlayerMove(input, spd, dir + 90.f); }
+	if (input.GetKeyA(InputState::Hold)) { PlayerMove(input, spd, dir + 270.f); }
 
 	
 }
@@ -62,7 +65,7 @@ void Player::PlayerMove(InputManager& input, float speed, float dir)
 	_position.z += cos(radian) * speed;
 
 
-	GetComponent<MV1Component>()->SetAnimation(1);
+	GetComponent<MV1Component>()->SetAnimation(23);
 	_rotation.y = dir + 180.0f;
 	//キャラ移動時アニメーション変更処理
 	//if (isAnimChange)

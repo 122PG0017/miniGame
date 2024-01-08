@@ -81,7 +81,7 @@ namespace AppFrame {
 		}
 
 
-		/*if (isBrending == true) { rate = 0.0f; isBrending = false; }
+		if (isBrending == true) { rate = 0.0f; isBrending = false; }
 		if (rate <= 1.0f)
 		{
 			rate >= 1.0f ? rate = 1.0f : rate += 0.1;
@@ -89,7 +89,7 @@ namespace AppFrame {
 		}
 		else
 		{
-			_playTime += _animSpeed;
+			//_playTime += _animSpeed;
 			if (_playTime >= _totalTime)
 			{
 				if (_animOldLoop) { _playTime = 0.0f; }
@@ -97,7 +97,9 @@ namespace AppFrame {
 			}
 		}
 		MV1SetAttachAnimBlendRate(_modelHandle, _attachIndexOld, 1.0f - rate);
-		MV1SetAttachAnimBlendRate(_modelHandle, _attachIndex, rate);*/
+		MV1SetAttachAnimBlendRate(_modelHandle, _attachIndex, rate);
+
+	    
 
 		MV1SetScale(_modelHandle, _parent->GetScale());
 		MV1SetRotationXYZ(_modelHandle, _parent->GetRotation());
@@ -126,18 +128,18 @@ namespace AppFrame {
 
 	void MV1Component::SetAnimation(int index, bool loop, bool override, bool brend)
 	{
-		//if (_animIndexOld == index && !override) { return; }
+		if (_animIndexOld == index && !override) { return; }
 		_isValid = true;
-		//isBrending = brend;
+		isBrending = brend;
 		MV1DetachAnim(_modelHandle, _attachIndex);
-		//MV1DetachAnim(_modelHandle, _attachIndexOld);
+		MV1DetachAnim(_modelHandle, _attachIndexOld);
 		_animIndex = index;
 		_attachIndex = MV1AttachAnim(_modelHandle, _animIndex, -1, true);
-		//_attachIndexOld = MV1AttachAnim(_modelHandle, _animIndexOld, -1, true);
-		//_animIndexOld = index;
-		//_animOldLoop = loop;
+		_attachIndexOld = MV1AttachAnim(_modelHandle, _animIndexOld, -1, true);
+		_animIndexOld = index;
+		_animOldLoop = loop;
 		_totalTime = MV1GetAttachAnimTotalTime(_modelHandle, _attachIndex);
-		//_playTimeOld = _playTime;
+		_playTimeOld = _playTime;
 		_playTime = 0.0f;
 	}
 

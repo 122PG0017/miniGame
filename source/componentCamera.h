@@ -9,8 +9,8 @@ namespace CAMERA
 	constexpr float LOOK_FORWARD_Z = -30.0f;      //FPS時注視点がプレイヤーからどれだけ離れているか
 	constexpr VECTOR TARGET_FPS_CAMERA = { 0.0f, 0.0f, CAMERA::LOOK_FORWARD_Z }; //距離座標
 	//TPS
-	constexpr float DISTANCE_TPS_Z = 300.0f;     //TPS始点時のプレイヤーとのZ軸距離
-	constexpr float DISTANCE_TPS_Y = 1000.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
+	constexpr float DISTANCE_TPS_Z = 1000.0f;     //TPS始点時のプレイヤーとのZ軸距離
+	constexpr float DISTANCE_TPS_Y = 500.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
 	constexpr VECTOR DISTANCE_TPS = { 0.0f, DISTANCE_TPS_Y, CAMERA::DISTANCE_TPS_Z }; //距離座標
 	//FREE_LOOK
 	constexpr float DISTANCE_FREE_LOOK_Z = 450.0f;         //フリールック始点時のZ軸距離
@@ -44,8 +44,7 @@ public:
 	bool Initialize()override;
 	void Process(InputManager& input)override;
 	void Render()override;
-	void PadInput(InputManager& input);
-	void KeyBoardInput(InputManager& input);
+	void KeyBoardInput(InputManager& input,float cameraspd);
 	void MouseInput(InputManager& input);
 	
 
@@ -80,7 +79,7 @@ public:
 	inline float GetRadian()const
 	{
 		auto vec = Math::ToDX(GetForward());
-		auto dir = (std::atan2(-vec.x, -vec.z) * 180.0f) / DX_PI_F;
+		auto dir = Math::ToRadians(std::atan2(-vec.x, -vec.z));
 		return dir;
 	}
 
@@ -95,6 +94,7 @@ private:
 	VECTOR _target;  //注視点
 	VECTOR _oldPosition, _oldTarget, _oldUp, _oldRotation;
 	VECTOR _up;//カメラの上方向ベクトル
+	MATRIX _cameraMatrix;
 
 	Math::Vector4 _plyToTarget{ Math::Vector4(0.0, 0.0, 0.0) };
 	Math::Vector4  _plyToPos{ Math::Vector4(0.0, 0.0, 0.0) };
@@ -104,7 +104,7 @@ private:
 
 	double _upDownAngle{ 0.0 };                                        //!< カメラの上下の回転の角度
 	double _sideAngle{ 0.0 };                                          //!< カメラの左右の回転の角度
-	Math::Matrix44 _anyAxisMatrix{ Math::Matrix44() };                             //!< ベクトルを90度回転させるためのマトリクス
+	Math::Matrix44 _anyAxisMatrix{ Math::Matrix44() };                 //!< ベクトルを90度回転させるためのマトリクス
 
 	CameraMode _cameraMode;//カメラモード
 	gameMain _gm;
