@@ -23,10 +23,10 @@ namespace AppFrame {
         void Debug()override;
         void SetModelHandle(int modelHandle);
         int GetModelHandle() { return _modelHandle; }
-        void SetAnimation(int index);
+        void SetAnimation(int index, bool loop = false, bool override = false, bool brend = false);
         void SetAnimSpeed(float value) { _animSpeed = value; };
         void SetValid(bool valid) { _isValid = valid; }
-        void SetAttachIndex(int index) { _attahIndex = index; }
+        void SetAttachIndex(int index) { _attachIndex = index; }
         float GetAnimSpeed() { return _animSpeed; }
         /**
          * \brief アニメーションの特定のタイミングで呼び出す関数を追加する
@@ -54,10 +54,17 @@ namespace AppFrame {
         bool _isValid;
         int _modelHandle;
         int _animIndex;
-        int _attahIndex;
+        int _attachIndex;
         float _playTime, _totalTime;
         float _animSpeed;
         std::vector<std::vector<std::pair<float, std::function<void(void)>>>> _animFunction;//[アニメーションIndex][時間,呼び出し関数]
+
+        bool isBrending;
+        bool _animOldLoop;
+        float rate;
+        int _animIndexOld = -1;
+        int _attachIndexOld = -1;
+        float _playTimeOld;
 
         bool _useOriginalShader;
         int _vertexShader;

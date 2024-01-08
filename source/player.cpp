@@ -37,12 +37,15 @@ void Player::Process(InputManager& input)
 {
 	ObjectBase::Process(input);
 
+	//キーボードでの自機移動処理
 	float spd = 10.0;
 	auto dir = GetComponent<CameraComponent>()->GetRadian();
-	if(input.GetKeyW(InputState::Hold)){ PlayerMove(input,spd, dir); }
+	if (input.GetKeyW(InputState::Hold)) { PlayerMove(input, spd, dir); }
 	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input,spd, dir + 180.f); }
 	if (input.GetKeyD(InputState::Hold)) { PlayerMove(input,spd, dir + 90.f); }
 	if (input.GetKeyA(InputState::Hold)) { PlayerMove(input,spd, dir + 270.f); }
+
+	
 }
 
 void Player::Render()
@@ -58,6 +61,9 @@ void Player::PlayerMove(InputManager& input, float speed, float dir)
 	_position.x += sin(radian) * speed;
 	_position.z += cos(radian) * speed;
 
+
+	GetComponent<MV1Component>()->SetAnimation(1);
+	_rotation.y = dir + 180.0f;
 	//キャラ移動時アニメーション変更処理
 	//if (isAnimChange)
 	//{

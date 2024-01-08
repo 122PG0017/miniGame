@@ -13,7 +13,7 @@
 namespace AppFrame {
 	MV1Component::MV1Component(int modelHandle)
 		:_modelHandle{ modelHandle }
-		, _attahIndex{ -1 }
+		, _attachIndex{ -1 }
 		, _playTime{ 0.0f }
 		, _totalTime{ 0.0f }
 		, _animSpeed{ 60.0f }
@@ -53,7 +53,7 @@ namespace AppFrame {
 
 	void MV1Component::Process(InputManager& input)
 	{
-		if (_attahIndex == -1) {
+		if (_attachIndex == -1) {
 			return;
 		}
 
@@ -80,14 +80,33 @@ namespace AppFrame {
 			SetShader();
 		}
 
+
+		/*if (isBrending == true) { rate = 0.0f; isBrending = false; }
+		if (rate <= 1.0f)
+		{
+			rate >= 1.0f ? rate = 1.0f : rate += 0.1;
+			MV1SetAttachAnimTime(_modelHandle, _attachIndexOld, _playTimeOld);
+		}
+		else
+		{
+			_playTime += _animSpeed;
+			if (_playTime >= _totalTime)
+			{
+				if (_animOldLoop) { _playTime = 0.0f; }
+				else { _playTime = _totalTime; }
+			}
+		}
+		MV1SetAttachAnimBlendRate(_modelHandle, _attachIndexOld, 1.0f - rate);
+		MV1SetAttachAnimBlendRate(_modelHandle, _attachIndex, rate);*/
+
 		MV1SetScale(_modelHandle, _parent->GetScale());
 		MV1SetRotationXYZ(_modelHandle, _parent->GetRotation());
 		MV1SetPosition(_modelHandle, _parent->GetPosition());
-		MV1SetAttachAnimTime(_modelHandle, _attahIndex, _playTime);
+		MV1SetAttachAnimTime(_modelHandle, _attachIndex, _playTime);
 
 		bool skinMesh{ false };
 
-		if (_attahIndex != -1) {
+		if (_attachIndex != -1) {
 			skinMesh = true;
 		}
 		MV1DrawModel(_modelHandle);
@@ -105,13 +124,20 @@ namespace AppFrame {
 		_animFunction.resize(animNumber);
 	}
 
-	void MV1Component::SetAnimation(int index)
+	void MV1Component::SetAnimation(int index, bool loop, bool override, bool brend)
 	{
+		//if (_animIndexOld == index && !override) { return; }
 		_isValid = true;
-		MV1DetachAnim(_modelHandle, _attahIndex);
+		//isBrending = brend;
+		MV1DetachAnim(_modelHandle, _attachIndex);
+		//MV1DetachAnim(_modelHandle, _attachIndexOld);
 		_animIndex = index;
-		_attahIndex = MV1AttachAnim(_modelHandle, _animIndex, -1, true);
-		_totalTime = MV1GetAttachAnimTotalTime(_modelHandle, _attahIndex);
+		_attachIndex = MV1AttachAnim(_modelHandle, _animIndex, -1, true);
+		//_attachIndexOld = MV1AttachAnim(_modelHandle, _animIndexOld, -1, true);
+		//_animIndexOld = index;
+		//_animOldLoop = loop;
+		_totalTime = MV1GetAttachAnimTotalTime(_modelHandle, _attachIndex);
+		//_playTimeOld = _playTime;
 		_playTime = 0.0f;
 	}
 
