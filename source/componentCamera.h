@@ -10,7 +10,7 @@ namespace CAMERA
 	constexpr VECTOR TARGET_FPS_CAMERA = { 0.0f, 0.0f, CAMERA::LOOK_FORWARD_Z }; //距離座標
 	//TPS
 	constexpr float DISTANCE_TPS_Z = 1000.0f;     //TPS始点時のプレイヤーとのZ軸距離
-	constexpr float DISTANCE_TPS_Y = 500.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
+	constexpr float DISTANCE_TPS_Y = 0.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
 	constexpr VECTOR DISTANCE_TPS = { 0.0f, DISTANCE_TPS_Y, CAMERA::DISTANCE_TPS_Z }; //距離座標
 	//FREE_LOOK
 	constexpr float DISTANCE_FREE_LOOK_Z = 450.0f;         //フリールック始点時のZ軸距離
@@ -82,6 +82,12 @@ public:
 		auto dir = Math::ToRadians(std::atan2(-vec.x, -vec.z));
 		return dir;
 	}
+	inline float GetDegree()const
+	{
+		auto vec = Math::ToDX(GetForward());
+		auto dir = std::atan2(-vec.x, -vec.z);
+		return dir;
+	}
 
 	void SetCameraMode(CameraMode cam) {
 		_cameraMode = cam;
@@ -95,6 +101,7 @@ private:
 	VECTOR _oldPosition, _oldTarget, _oldUp, _oldRotation;
 	VECTOR _up;//カメラの上方向ベクトル
 	MATRIX _cameraMatrix;
+	bool _firstflag;
 
 	Math::Vector4 _plyToTarget{ Math::Vector4(0.0, 0.0, 0.0) };
 	Math::Vector4  _plyToPos{ Math::Vector4(0.0, 0.0, 0.0) };

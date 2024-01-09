@@ -30,7 +30,7 @@ namespace AppFrame {
 #else
 		ChangeWindowMode(false);
 #endif //DEBUG時:ウィンドウモード / RELEASE時：フルスクリーンモード
-		SetMainWindowText("CyberDevilHunter-Dracula");
+		SetMainWindowText("minigame");
 		SetGraphMode(DispSizeW(), DispSizeH(), 32);
 
 		// DirectX11を使用するようにする。(DirectX9も可、一部機能不可)
