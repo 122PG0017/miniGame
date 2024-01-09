@@ -48,7 +48,7 @@
     <ClInclude Include="source\gameComponentBase.h">
       <Filter>Object\component</Filter>
     </ClInclude>
-    <ClInclude Include="source\enemy.h">
+    <ClInclude Include="source\cubeEnemy.h">
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="source\skySphere.h">
@@ -86,7 +86,7 @@
     <ClCompile Include="source\gameComponentBase.cpp">
       <Filter>Object\component</Filter>
     </ClCompile>
-    <ClCompile Include="source\enemy.cpp">
+    <ClCompile Include="source\cubeEnemy.cpp">
       <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="source\skySphere.cpp">

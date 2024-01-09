@@ -8,6 +8,7 @@
  *********************************************************************/
 #pragma once
 class Player;
+class CubeEnemy;
 using namespace AppFrame;
 
 class GameObjectBase :public AppFrame::ObjectBase {
@@ -15,4 +16,5 @@ public:
     void AddGameComponent(std::unique_ptr<GameComponentBase> component, int id = 0);
     /**  \brief プレイヤーのポインタを取得*/
     Player* GetPlayer();
+    CubeEnemy* GetCubeEnemy();
 };

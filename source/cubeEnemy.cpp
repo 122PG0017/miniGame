@@ -1,21 +1,20 @@
-#include "enemy.h"
 using namespace AppFrame;
 bool sift;
 
-Enemy::Enemy():Handle{0}
+CubeEnemy::CubeEnemy():Handle{0}
 {
 	_name = "cube";
 }
 
-Enemy::~Enemy()
+CubeEnemy::~CubeEnemy()
 {
 }
 
-void Enemy::Initialize()
+void CubeEnemy::Initialize()
 {
 	ObjectBase::Initialize();
 
-	_position = { 0.0f, 50.0f, 0.0f };
+	_position = { 0.0f, 50.0f, -100.0f };
 	_scale = { 0.2f,0.2f,0.2f };
     sift = true;
 
@@ -27,12 +26,12 @@ void Enemy::Initialize()
 	AddComponent(std::move(col));
 }
 
-void Enemy::Terminate()
+void CubeEnemy::Terminate()
 {
 	ObjectBase::Terminate();
 }
 
-void Enemy::Process(InputManager& input)
+void CubeEnemy::Process(InputManager& input)
 {
 	if (sift)
 	{
@@ -48,7 +47,7 @@ void Enemy::Process(InputManager& input)
 	ObjectBase::Process(input);
 }
 
-void Enemy::Render()
+void CubeEnemy::Render()
 {
 	ObjectBase::Render();
 }

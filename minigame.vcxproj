@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\componentCamera.h" />
-    <ClInclude Include="source\enemy.h" />
+    <ClInclude Include="source\cubeEnemy.h" />
     <ClInclude Include="source\gameComponentBase.h" />
     <ClInclude Include="source\gameMain.h" />
     <ClInclude Include="source\gameObjectBase.h" />
@@ -34,7 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\componentCamera.cpp" />
-    <ClCompile Include="source\enemy.cpp" />
+    <ClCompile Include="source\cubeEnemy.cpp" />
     <ClCompile Include="source\gameComponentBase.cpp" />
     <ClCompile Include="source\gameMain.cpp" />
     <ClCompile Include="source\gameObjectBase.cpp" />

@@ -14,3 +14,8 @@ Player* GameObjectBase::GetPlayer()
 {
     return static_cast<Player*>(_mode->GetObjectServer()->Get("Player"));
 }
+
+CubeEnemy* GameObjectBase::GetCubeEnemy()
+{
+    return static_cast<CubeEnemy*>(_mode->GetObjectServer()->Get("cube"));
+}

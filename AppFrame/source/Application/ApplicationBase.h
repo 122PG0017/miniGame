@@ -45,7 +45,7 @@ namespace AppFrame {
 	protected:
 		static	ApplicationBase* _lpInstance;
 		std::vector<std::string> debugWardBox;
-		XINPUT_STATE imputInfX;
+		//XINPUT_STATE imputInfX;
 		std::unique_ptr<InputManager> _inputManager;//“ü—Í‚ðŽæ“¾
 	};
 }

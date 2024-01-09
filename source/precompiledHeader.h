@@ -41,7 +41,7 @@
 //--プレイヤー
 #include "Player.h"
 //--エネミー
-#include "enemy.h"
+#include "cubeEnemy.h"
 
 
 //--システム

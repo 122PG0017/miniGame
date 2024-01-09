@@ -4,7 +4,7 @@ CameraComponent::CameraComponent():_position{0,0,0}
 {
 	const VECTOR zero = Math::VZero();
 	_fov_parameter = 0.0f;
-	_fov = CAMERA::FOV_MIN;
+	_fov = CAMERA::FOV_DEFAULT;
 
 	_target = zero;
 	_oldPosition = zero;
@@ -23,8 +23,8 @@ CameraComponent::~CameraComponent()
 bool CameraComponent::Initialize()
 { 
     int Disp_x, Disp_y;
-    GetWindowSize(&Disp_x, &Disp_y);
-    SetMousePoint(Disp_x / 2, Disp_y / 2);
+    DxLib::GetWindowSize(&Disp_x, &Disp_y);
+    DxLib::SetMousePoint(Disp_x / 2, Disp_y / 2);
     _upDownAngle = 0.0;
     _sideAngle = 0.0;
     _firstflag = true;
@@ -41,14 +41,14 @@ void CameraComponent::Process(InputManager& input)
 
     // ビュー行列の設定
     auto cameraMatrix = GetCameraViewMatrix();
-    SetCameraViewMatrix(cameraMatrix);
+    DxLib::SetCameraViewMatrix(cameraMatrix);
 
 
     //fovセット
     float accelerationFov = (CAMERA::FOV_MAX - CAMERA::FOV_DEFAULT) * _fov_parameter;
     float decelerationFov = _fov;
     float fov = accelerationFov + decelerationFov;
-    SetupCamera_Perspective(Math::ToRadians(fov));
+    DxLib::SetupCamera_Perspective(Math::ToRadians(fov));
 
 
 	switch (_cameraMode) {
@@ -65,7 +65,7 @@ void CameraComponent::Process(InputManager& input)
 
 void CameraComponent::Render()
 {
-    SetCameraPositionAndTarget_UpVecY(_position,_target);
+    DxLib::SetCameraPositionAndTarget_UpVecY(_position,_target);
 	//DxLib::SetCameraPositionAndTargetAndUpVec(_position,_target, _up);
 }
 
@@ -87,16 +87,16 @@ void CameraComponent::ProcessPlayerCamera(InputManager& input, float deltaTime, 
    _target.y += 100;
 
     // Ｘ軸回転行列
-    MATRIX MatrixX = MGetRotX(_upDownAngle);
+    MATRIX MatrixX = DxLib::MGetRotX(_upDownAngle);
     // Ｙ軸回転行列
-    MATRIX MatrixY = MGetRotY(_sideAngle);
+    MATRIX MatrixY = DxLib::MGetRotY(_sideAngle);
     // 行列の合成
-    _cameraMatrix = MMult(MatrixX, MatrixY);
+    _cameraMatrix = DxLib::MMult(MatrixX, MatrixY);
     // 基準ベクトルを行列で変換
-    Direction = VTransform(Direction, _cameraMatrix);
+    Direction = DxLib::VTransform(Direction, _cameraMatrix);
 
    // カメラ座標はプレイヤー座標から変換した座標を足したところ
-    _position = VAdd(_parent->GetPosition(), Direction);
+    _position = DxLib::VAdd(_parent->GetPosition(), Direction);
 
     //距離成分の結果を代入する
     /*_up = VTransform(Math::VUp(), playerRotationMatrix);//上方向のベクトル
@@ -142,10 +142,18 @@ void CameraComponent::MouseInput(InputManager& input)
     if (!_firstflag)
     {
         _sideAngle -= Math::ToRadians(MouseX);
-        _upDownAngle -= Math::ToRadians(MouseY);
+        _upDownAngle += Math::ToRadians(MouseY);
     }
     else { _firstflag = false; }
    
-    if (MouseX > 0 || MouseX < 0 || MouseY < 0 || MouseY > 0) { SetMousePoint(Disp_x / 2, Disp_y / 2); }
-   
+    if (MouseX > 0 || MouseX < 0 || MouseY < 0 || MouseY > 0) { DxLib::SetMousePoint(Disp_x / 2, Disp_y / 2); }
+
+    if(input.GetKeySPACE(InputState::Hold))
+    {
+        DxLib::SetMouseDispFlag(TRUE);
+    }
+    else
+    {
+        DxLib::SetMouseDispFlag(FALSE);
+    }
 }

@@ -44,7 +44,7 @@ bool modeTitle::Process(InputManager& input)
 
 bool	modeTitle::Render()
 {
-	DrawGraph(0, 0, _cg, true);
+	DxLib::DrawGraph(0, 0, _cg, true);
 	return true;
 }
 

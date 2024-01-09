@@ -1,10 +1,10 @@
 #pragma once
-class Enemy :public GameObjectBase
+class CubeEnemy :public GameObjectBase
 {
 public:
 	using ObjectBase::AddComponent;
-	Enemy();
-	~Enemy();
+	CubeEnemy();
+	~CubeEnemy();
 	void Initialize()override;
 	void Terminate()override;
 	void Process(InputManager& input)override;

@@ -17,7 +17,7 @@ void SkySphere::Initialize()
 {
 	_position = { 0,0,0 };
 	float sc = 10.0f;
-	_scale = VScale(_scale, sc);
+	_scale = DxLib::VScale(_scale, sc);
 	auto handle = MV1LoadModel(skyhandle);
 	auto mv1Component = std::make_unique<MV1Component>(handle);
 	AddComponent(std::move(mv1Component));

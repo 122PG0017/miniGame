@@ -9,7 +9,7 @@ namespace CAMERA
 	constexpr float LOOK_FORWARD_Z = -30.0f;      //FPS時注視点がプレイヤーからどれだけ離れているか
 	constexpr VECTOR TARGET_FPS_CAMERA = { 0.0f, 0.0f, CAMERA::LOOK_FORWARD_Z }; //距離座標
 	//TPS
-	constexpr float DISTANCE_TPS_Z = 1000.0f;     //TPS始点時のプレイヤーとのZ軸距離
+	constexpr float DISTANCE_TPS_Z = 500.0f;     //TPS始点時のプレイヤーとのZ軸距離
 	constexpr float DISTANCE_TPS_Y = 0.0f;      //TPS始点時のカメラ座標をどれだけ高く置くか
 	constexpr VECTOR DISTANCE_TPS = { 0.0f, DISTANCE_TPS_Y, CAMERA::DISTANCE_TPS_Z }; //距離座標
 	//FREE_LOOK
@@ -23,7 +23,6 @@ namespace CAMERA
 	constexpr float FOV_DEFAULT = 60.0f;//デフォルトのfov
 	constexpr float FOV_MIN = 20.0f;//速度変化による視野変更演出時の最低fov
 	constexpr float FOV_MAX = 150.0f;//速度変化による視野変更演出時の最高fov
-	constexpr float MAX_COMBO_IN_MAX_FOV = 10.0f;//最大視野角到達時の最大コンボ量
 	constexpr float SPD_FOV_CHANGE = 10.0f;//速度増加によるfovの変化速度
 	constexpr float SPD_RETURN_FOV_CHANGE = 5.0f;//速度増減によるfovの変化速度
 }
@@ -95,7 +94,7 @@ public:
 private:
 	float _fov_parameter;//fovパラメーター
 	float _fov;          //視野角
-	float _cameraDistanceParameter;//カメラ距離パラメーター
+	//float _cameraDistanceParameter;//カメラ距離パラメーター
 	VECTOR _position;
 	VECTOR _target;  //注視点
 	VECTOR _oldPosition, _oldTarget, _oldUp, _oldRotation;
@@ -103,15 +102,8 @@ private:
 	MATRIX _cameraMatrix;
 	bool _firstflag;
 
-	Math::Vector4 _plyToTarget{ Math::Vector4(0.0, 0.0, 0.0) };
-	Math::Vector4  _plyToPos{ Math::Vector4(0.0, 0.0, 0.0) };
-	VECTOR _firstPlyToTarget;
-	VECTOR _firstPlyToPos;
-	Math::Vector4 _posToTarget{ Math::Vector4(0.0, 0.0, 0.0) };                    //!< カメラが生成された時のカメラの位置から注視点へのベクトル
-
 	double _upDownAngle{ 0.0 };                                        //!< カメラの上下の回転の角度
 	double _sideAngle{ 0.0 };                                          //!< カメラの左右の回転の角度
-	Math::Matrix44 _anyAxisMatrix{ Math::Matrix44() };                 //!< ベクトルを90度回転させるためのマトリクス
 
 	CameraMode _cameraMode;//カメラモード
 	gameMain _gm;
