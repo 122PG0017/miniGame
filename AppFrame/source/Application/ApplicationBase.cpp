@@ -123,4 +123,13 @@ namespace AppFrame {
 		}
 		return true;
 	}
+
+	bool ApplicationBase::Debug()
+	{
+		_modeServer->DebugInit();
+		_modeServer->Debug();
+		_modeServer->DebugFinish();
+
+		return true;
+	}
 }

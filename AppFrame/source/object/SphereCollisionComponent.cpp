@@ -39,6 +39,7 @@ namespace AppFrame {
     {
         DrawSphere3D(GetPosition(), _radius, 12, GetColor(255, 255, 0) , GetColor(0, 0, 0), false);
     }
+
     VECTOR SphereCollisionComponent::GetPosition()
     {
         VECTOR position = _parent->GetPosition();

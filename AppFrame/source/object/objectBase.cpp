@@ -27,7 +27,7 @@ namespace AppFrame {
 
     void ObjectBase::Terminate()
     {
-        //_components.clear();
+        _components.clear();
     }
 
     void ObjectBase::Process(InputManager& input)

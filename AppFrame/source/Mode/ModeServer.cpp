@@ -55,7 +55,6 @@ namespace AppFrame {
 	// 削除予約
 	int ModeServer::Del(const char* name)
 	{
-
 		_vModeDel.emplace_back(name);
 		return 0;
 	}
@@ -240,6 +239,45 @@ namespace AppFrame {
 
 	// 描画を回した後の後始末
 	int ModeServer::RenderFinish() { return 0; }
+
+	int ModeServer::DebugInit()
+	{
+		return 0;
+	}
+
+	int ModeServer::Debug()
+	{
+		// 指定のクラスのみ処理
+		for (int i = 0; i < _nowMode.size(); i++)
+		{
+			if (_vMode.size() == 0 || _nowMode[i].c_str() == "") { continue; }
+			if (!IsDelRegist(_nowMode[i].c_str())) {
+				_vMode.at(_nowMode[i].c_str())->Debug();
+			}
+		}
+
+		// レイヤーの下の方から処理
+		//auto ite = _vMode.begin();
+
+		/*for (; ite != _vMode.end(); ++ite) {
+			if (_skipRenderMode && _skipRenderMode != (*ite).get()) { continue; }
+
+			_skipRenderMode = NULL;
+
+			if (!IsDelRegist((*ite).get())) {
+				_nowMode = (*ite).get();
+				(*ite)->Debug();
+			}
+		}*/
+
+		//_nowMode = NULL;
+		return 0;
+	}
+
+	int ModeServer::DebugFinish()
+	{
+		return 0;
+	}
 
 	// 今処理しているレイヤーより下のレイヤーは、処理を呼ばない
 	int ModeServer::SkipUpdateUnderLayer() {

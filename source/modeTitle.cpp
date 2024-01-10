@@ -1,3 +1,4 @@
+#include "modeTitle.h"
 
 using namespace AppFrame;
 using namespace model;
@@ -46,6 +47,11 @@ bool	modeTitle::Render()
 {
 	DxLib::DrawGraph(0, 0, _cg, true);
 	return true;
+}
+
+bool modeTitle::Debug()
+{
+	return false;
 }
 
 bool	modeTitle::Terminate()

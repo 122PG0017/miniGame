@@ -1,3 +1,4 @@
+#include "cubeEnemy.h"
 using namespace AppFrame;
 bool sift;
 
@@ -50,4 +51,9 @@ void CubeEnemy::Process(InputManager& input)
 void CubeEnemy::Render()
 {
 	ObjectBase::Render();
+}
+
+void CubeEnemy::Debug()
+{
+	ObjectBase::Debug();
 }

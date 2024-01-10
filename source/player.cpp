@@ -28,6 +28,8 @@ void Player::Initialize()
 
 	auto col = std::make_unique<SphereCollisionComponent>();
 	AddComponent(std::move(col));
+
+	GetComponent <SphereCollisionComponent>()->SetAttachFrame(40);
 }
 
 void Player::Terminate()
@@ -56,6 +58,11 @@ void Player::Render()
 	ObjectBase::Render();
 }
 
+void Player::Debug()
+{
+	ObjectBase::Debug();
+}
+
 void Player::PlayerMove(InputManager& input, float speed, float dir)
 {
 	//İ’èˆ—
@@ -65,6 +72,6 @@ void Player::PlayerMove(InputManager& input, float speed, float dir)
 
 
 	GetComponent<MV1Component>()->SetAnimation(23);
+	GetComponent<MV1Component>()->SetLoop(true);
 	_rotation.y = dir + 180.0f;
-	
 }

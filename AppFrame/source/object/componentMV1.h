@@ -23,10 +23,12 @@ namespace AppFrame {
         void Debug()override;
         void SetModelHandle(int modelHandle);
         int GetModelHandle() { return _modelHandle; }
-        void SetAnimation(int index, bool loop = false, bool override = false, bool brend = false);
+        void SetAnimation(int index, bool override = false);
         void SetAnimSpeed(float value) { _animSpeed = value; };
         void SetValid(bool valid) { _isValid = valid; }
         void SetAttachIndex(int index) { _attachIndex = index; }
+        void SetLoop(bool loop) { _animOldLoop = loop; }
+        void SetBrend(bool brend){ isBrending = brend; }
         float GetAnimSpeed() { return _animSpeed; }
         /**
          * \brief アニメーションの特定のタイミングで呼び出す関数を追加する

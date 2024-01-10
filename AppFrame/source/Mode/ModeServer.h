@@ -52,6 +52,10 @@ namespace AppFrame {
 		int Render();		// レイヤーの下の方から処理
 		int RenderFinish();		// 描画を回した後の後始末
 
+		int DebugInit();		// デバッグを回すための初期化
+		int Debug();		// レイヤーの下の方から処理
+		int DebugFinish();		// デバッグを回した後の後始末
+
 		int SkipUpdateUnderLayer();		// 現Processで、今処理しているレイヤーより下のレイヤーは、処理を呼ばない
 		int SkipRenderUnderLayer();			// 現Processで、今処理しているレイヤーより下のレイヤーは、描画を呼ばない
 		int PauseProcessUnderLayer();		// 現Processで、今処理しているレイヤーより下のレイヤーは、時間経過を止める

@@ -1,3 +1,4 @@
+#include "modeGame.h"
 using namespace AppFrame;
 using namespace model;
 
@@ -41,4 +42,9 @@ bool modeGame::Render()
     _objectServer->Render();
 
     return true;
+}
+
+bool modeGame::Debug()
+{
+    return false;
 }

@@ -31,6 +31,7 @@ namespace AppFrame {
 		virtual bool Input();
 		virtual bool Process();
 		virtual bool Render();
+		virtual bool Debug();
 
 		virtual bool AppWindowed() { return true; }
 		virtual int DispSizeW() { return 640; }

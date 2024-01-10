@@ -40,5 +40,5 @@ protected:
 	//modelInf plMI, stage;
 	std::string NS;
 
-	bool debugMode = true;
+	bool _debug;
 };

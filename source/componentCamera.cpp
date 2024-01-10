@@ -69,6 +69,9 @@ void CameraComponent::Render()
 	//DxLib::SetCameraPositionAndTargetAndUpVec(_position,_target, _up);
 }
 
+void CameraComponent::Debug()
+{
+}
 
 void CameraComponent::ProcessPlayerCamera(InputManager& input, float deltaTime, float camSpd)
 {

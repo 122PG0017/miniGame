@@ -43,6 +43,7 @@ public:
 	bool Initialize()override;
 	void Process(InputManager& input)override;
 	void Render()override;
+	void Debug()override;
 	void KeyBoardInput(InputManager& input,float cameraspd);
 	void MouseInput(InputManager& input);
 	

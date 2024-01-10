@@ -47,6 +47,7 @@ public:
 	void Terminate()override;
 	void Process(InputManager& input)override;
 	void Render()override;
+	void Debug() override;
 
 	void PlayerMove(InputManager& input,float speed,float dir);
 

@@ -42,3 +42,8 @@ void SkySphere::Render()
 {
 	ObjectBase::Render();
 }
+
+void SkySphere::Debug()
+{
+	ObjectBase::Debug();
+}

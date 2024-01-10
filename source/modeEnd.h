@@ -8,6 +8,7 @@ class modeEnd :public AppFrame::ModeBase
 	bool Terminate() override;
 	bool Process(InputManager& input) override;
 	bool Render() override;
+	bool Debug() override;
 protected:
 	int _cg;
 	modelInf _modelInf;

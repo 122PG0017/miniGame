@@ -1,3 +1,4 @@
+#include "modeEnd.h"
 using namespace AppFrame;
 using namespace model;
 
@@ -32,4 +33,9 @@ bool	modeEnd::Render()
 {
 	DxLib::DrawGraph(0, 0, _cg, true);
 	return true;
+}
+
+bool modeEnd::Debug()
+{
+	return false;
 }

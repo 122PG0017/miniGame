@@ -9,6 +9,7 @@ public:
 	void Terminate()override;
 	void Process(InputManager& input)override;
 	void Render()override;
+	void Debug() override;
 protected:
 	int Handle;
 };

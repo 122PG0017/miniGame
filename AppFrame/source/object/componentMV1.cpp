@@ -126,18 +126,18 @@ namespace AppFrame {
 		_animFunction.resize(animNumber);
 	}
 
-	void MV1Component::SetAnimation(int index, bool loop, bool override, bool brend)
+	void MV1Component::SetAnimation(int index,bool override)
 	{
 		if (_animIndexOld == index && !override) { return; }
 		_isValid = true;
-		isBrending = brend;
+		isBrending = true;
 		MV1DetachAnim(_modelHandle, _attachIndex);
 		MV1DetachAnim(_modelHandle, _attachIndexOld);
 		_animIndex = index;
 		_attachIndex = MV1AttachAnim(_modelHandle, _animIndex, -1, true);
 		_attachIndexOld = MV1AttachAnim(_modelHandle, _animIndexOld, -1, true);
 		_animIndexOld = index;
-		_animOldLoop = loop;
+		_animOldLoop = false;
 		_totalTime = MV1GetAttachAnimTotalTime(_modelHandle, _attachIndex);
 		_playTimeOld = _playTime;
 		_playTime = 0.0f;
