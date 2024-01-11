@@ -1,6 +1,4 @@
-#include "cubeEnemy.h"
 using namespace AppFrame;
-bool sift;
 
 CubeEnemy::CubeEnemy():Handle{0}
 {
@@ -15,9 +13,9 @@ void CubeEnemy::Initialize()
 {
 	ObjectBase::Initialize();
 
-	_position = { 0.0f, 50.0f, -100.0f };
+	_position = { 0.0f, 60.0f, -200.0f };
 	_scale = { 0.2f,0.2f,0.2f };
-    sift = true;
+    _sift = true;
 
 	auto handle = MV1LoadModel("resource/tmp/DefaultCude.mv1");
 	auto mv1Component = std::make_unique<MV1Component>(handle);
@@ -25,6 +23,8 @@ void CubeEnemy::Initialize()
 
 	auto col = std::make_unique<SphereCollisionComponent>();
 	AddComponent(std::move(col));
+
+	GetComponent <SphereCollisionComponent>()->SetAttachFrame(1);
 }
 
 void CubeEnemy::Terminate()
@@ -34,17 +34,24 @@ void CubeEnemy::Terminate()
 
 void CubeEnemy::Process(InputManager& input)
 {
-	if (sift)
+	auto _player = GetPlayer();
+	if (_sift)
 	{
 		_position.y += 1.0f;
-		if (_position.y == 100) { sift = false; }
+		if (_position.y == 100) { _sift = false; }
 	}
-	if(!sift)
+	if(!_sift)
 	{
 		_position.y -= 1.0f;
-		if (_position.y == 20) { sift = true; }
+		if (_position.y == 20) { _sift = true; }
 	}
 	_rotation.y += 0.1f;
+	if (CheckCollision::Intersect(GetComponent<MV1Component>()->GetModelHandle(), _player->GetComponent<SphereCollisionComponent>()))
+	{
+		ModeServer::GetInstance()->Add(std::make_unique<modeEnd>(), 1, "end");
+		ModeServer::GetInstance()->Del("game");
+		return;
+	};
 	ObjectBase::Process(input);
 }
 

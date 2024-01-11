@@ -1,5 +1,3 @@
-#include "gameObjectBase.h"
-#include "Player.h"
 
 void GameObjectBase::AddGameComponent(std::unique_ptr<GameComponentBase> component, int id)
 {

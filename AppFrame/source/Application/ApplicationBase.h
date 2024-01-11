@@ -2,7 +2,7 @@
  * \file   ApplicationBase.h
  * \brief  アプリケーションのスーパークラス
  *
- * \author 山本莉久
+ * \author 山本莉久　松田裕
  * \date   March 2023
  *********************************************************************/
 #pragma once
@@ -41,10 +41,14 @@ namespace AppFrame {
 		virtual void GetLstick(int* xbuf, int* ybuf) { GetJoypadAnalogInput(xbuf, ybuf, DX_INPUT_PAD1); }
 		virtual void GetRstick(int* xbuf, int* ybuf) { GetJoypadAnalogInputRight(xbuf, ybuf, DX_INPUT_PAD1); }
 		//virtual int GetWard() { return KeyInputString(10, 700, 141, _imputInf.wardBox, true); }//戻り値1.正常 2.キャンセル 3.失敗
+		virtual bool GetAppEnd() { return _appEnd; }
+		virtual void SetAppEnd(bool flag) { _appEnd = flag; }
+
 	private:
+		static ApplicationBase* _lpInstance;//継承先でthisポインタが入る
 		std::unique_ptr<ModeServer> _modeServer;//モード管理クラス
+		bool _appEnd;//ゲーム終了フラグ
 	protected:
-		static	ApplicationBase* _lpInstance;
 		std::vector<std::string> debugWardBox;
 		//XINPUT_STATE imputInfX;
 		std::unique_ptr<InputManager> _inputManager;//入力を取得

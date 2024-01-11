@@ -1,4 +1,3 @@
-#include "modeGame.h"
 using namespace AppFrame;
 using namespace model;
 
@@ -6,15 +5,18 @@ bool modeGame::Initialize()
 {
     if (!ModeBase::Initialize()) { return false; }
 
-    _objectServer->Add(std::make_unique<Player>());
-    _objectServer->Add(std::make_unique<CubeEnemy>());
-    _objectServer->Add(std::make_unique<SkySphere>());
-
-    Handle = RS.loadGraphR("resource/tmp/Dora.png");
 
     DxLib::SetUseZBuffer3D(true);
     DxLib::SetWriteZBuffer3D(true);
     DxLib::SetUseLighting(false);
+
+    _objectServer->Add(std::make_unique<Player>());
+    _objectServer->Add(std::make_unique<CubeEnemy>());
+    _objectServer->Add(std::make_unique<SkySphere>());
+    _objectServer->Add(std::make_unique<Stage>());
+
+    //Handle = RS.loadGraphR("resource/tmp/Dora.png");
+
     //ƒ‰ƒCƒg‚ÌÝ’è
     DxLib::ChangeLightTypeDir({ 0.1f,1.0f,0.5f });
     DxLib::SetLightDifColor({ 2.0f, 2.0f, 2.0f, 0.0f });
@@ -46,5 +48,7 @@ bool modeGame::Render()
 
 bool modeGame::Debug()
 {
-    return false;
+    ModeBase::Debug();
+    _objectServer->Debug();
+    return true;
 }

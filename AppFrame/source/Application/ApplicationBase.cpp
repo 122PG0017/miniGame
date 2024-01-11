@@ -2,7 +2,7 @@
  * \file   ApplicationBase.cpp
  * \brief  アプリケーションのスーパークラスの定義
  *
- * \author 山本莉久
+ * \author 山本莉久 松田裕
  * \date   March 2023
  *********************************************************************/
 #include "ApplicationBase.h"
@@ -19,6 +19,7 @@ namespace AppFrame {
 		_lpInstance = this;
 		_modeServer = nullptr;
 		_inputManager = nullptr;
+		_appEnd = false;
 	}
 
 	ApplicationBase::~ApplicationBase() {}

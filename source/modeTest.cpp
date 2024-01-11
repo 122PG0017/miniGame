@@ -1,4 +1,3 @@
-#include "modeTest.h"
 /*****************************************************************//**
  * \file   ModeTest.cpp
  * \brief  モードの実装例です。ゲーム中では使用しない。
@@ -51,6 +50,8 @@ bool ModeTest::Render() {
 
 bool ModeTest::Debug()
 {
-    return false;
+    ModeBase::Debug();
+    _objectServer->Debug();
+    return true;
 }
 

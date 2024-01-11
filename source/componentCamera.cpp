@@ -1,4 +1,3 @@
-#include "componentCamera.h"
 
 CameraComponent::CameraComponent():_position{0,0,0}
 {

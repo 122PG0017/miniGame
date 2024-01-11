@@ -30,10 +30,15 @@ bool gameMain::Input()
 
 bool gameMain::Process()
 {
-	if (CheckHitKey(KEY_INPUT_ESCAPE)) { return false; }
+	if (CheckHitKey(KEY_INPUT_ESCAPE))
+	{ 
+		this->SetAppEnd(true);
+		//return false; 
+	}
 
-	if (_inputManager->GetKeyAt(AppFrame::InputState::Pressed)) {
-		_debug = !_debug;
+	if (_inputManager->GetKey1(AppFrame::InputState::Pressed)) {
+		//_debug = !_debug;
+		_debug = true;
 	}
 
 	base::Process();

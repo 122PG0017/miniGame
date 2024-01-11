@@ -1,4 +1,3 @@
-#include "player.h"
 using namespace AppFrame;
 using namespace model;
 
@@ -34,7 +33,6 @@ void Player::Initialize()
 
 void Player::Terminate()
 {
-	model::modelDelete(&_modelInf);
 	ObjectBase::Terminate();
 }
 
@@ -50,7 +48,12 @@ void Player::Process(InputManager& input)
 	if (input.GetKeyD(InputState::Hold)) { PlayerMove(input, spd, dir + 90.f); }
 	if (input.GetKeyA(InputState::Hold)) { PlayerMove(input, spd, dir + 270.f); }
 
-	
+	if(input.GetMouseLeft(InputState::Pressed))
+	{
+		GetComponent<SphereCollisionComponent>()->SetAttachFrame(96);
+		GetComponent<MV1Component>()->SetAnimation(1,true);
+		GetComponent<MV1Component>()->SetLoop(false);
+	}
 }
 
 void Player::Render()
@@ -60,18 +63,24 @@ void Player::Render()
 
 void Player::Debug()
 {
+	VECTOR forward{ VTransform({0.0f, 500.0f, -5.0f}, _rotationMatrix) };
+	VECTOR back{ VTransform({0.0f, -500.0f, 5.0f}, _rotationMatrix) };
+    float CrashDeg = 100.0f;
+	float r = std::tanf(Math::ToRadians(CrashDeg * 0.5)) * VSize(VSub(_position, VAdd(_position, forward)));
+
+	DrawCapsule3D(_position, VAdd(_position, forward), r, 8, GetColor(255, 0, 0), GetColor(0, 0, 0), false);
 	ObjectBase::Debug();
 }
 
 void Player::PlayerMove(InputManager& input, float speed, float dir)
 {
 	//ê›íËèàóù
-	float radian = (_rotation.y+dir) * DX_PI_F / 180.0f;
+	//float radian = (_rotation.y+dir) * DX_PI_F / 180.0f;
+	float radian = Math::ToRadians(dir);
 	_position.x -= sin(radian) * speed;
 	_position.z -= cos(radian) * speed;
 
-
 	GetComponent<MV1Component>()->SetAnimation(23);
 	GetComponent<MV1Component>()->SetLoop(true);
-	_rotation.y = dir + 180.0f;
+	_rotation.y += radian;
 }
