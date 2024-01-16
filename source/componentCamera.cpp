@@ -49,7 +49,6 @@ void CameraComponent::Process(InputManager& input)
     float fov = accelerationFov + decelerationFov;
     DxLib::SetupCamera_Perspective(Math::ToRadians(fov));
 
-
 	switch (_cameraMode) {
 	case CameraMode::Player:
 		ProcessPlayerCamera(input, deltaTime, cameraSpd);
@@ -70,6 +69,7 @@ void CameraComponent::Render()
 
 void CameraComponent::Debug()
 {
+    DxLib::DrawFormatString(100, 100, (255, 0, 0), "%f\e", GetRadian());
 }
 
 void CameraComponent::ProcessPlayerCamera(InputManager& input, float deltaTime, float camSpd)

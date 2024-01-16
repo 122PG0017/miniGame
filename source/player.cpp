@@ -43,10 +43,10 @@ void Player::Process(InputManager& input)
 	//キーボードでの自機移動処理
 	float spd = 10.0;
 	auto dir = GetComponent<CameraComponent>()->GetDegree();
-	if (input.GetKeyW(InputState::Hold)) { PlayerMove(input, spd, dir); }
-	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input, spd, dir + 180.f); }
-	if (input.GetKeyD(InputState::Hold)) { PlayerMove(input, spd, dir + 90.f); }
-	if (input.GetKeyA(InputState::Hold)) { PlayerMove(input, spd, dir + 270.f); }
+	if (input.GetKeyW(InputState::Hold)) { PlayerMove(input, spd); }
+	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input, spd); }
+	if (input.GetKeyD(InputState::Hold)) { PlayerMove(input, spd); }
+	if (input.GetKeyA(InputState::Hold)) { PlayerMove(input, spd); }
 
 	if(input.GetMouseLeft(InputState::Pressed))
 	{
@@ -72,13 +72,19 @@ void Player::Debug()
 	ObjectBase::Debug();
 }
 
-void Player::PlayerMove(InputManager& input, float speed, float dir)
+void Player::PlayerMove(InputManager& input, float speed)
 {
 	//設定処理
+	auto radian = GetComponent<CameraComponent>()->GetRadian();
 	//float radian = (_rotation.y+dir) * DX_PI_F / 180.0f;
-	float radian = Math::ToRadians(dir);
-	_position.x -= sin(radian) * speed;
-	_position.z -= cos(radian) * speed;
+	//float radian = Math::ToRadians(dir);
+	auto pos = _position;
+	//_position.x -= sin(radian) * speed;
+	//_position.z -= cos(radian) * speed;
+	pos.x -= sin(radian*100) * speed;
+	pos.z -= cos(radian*100) * speed;
+
+	_position = Math::Lerp(_position,pos,1);
 
 	GetComponent<MV1Component>()->SetAnimation(23);
 	GetComponent<MV1Component>()->SetLoop(true);

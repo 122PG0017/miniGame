@@ -1,6 +1,3 @@
-#include<vector>
-#include<memory>
-
 using namespace DxLib;
 using namespace AppFrame;
 using namespace model;
@@ -51,7 +48,7 @@ bool gameMain::Render()
 	base::Render();
 
 	if (_debug) {
-		ApplicationBase::Debug();
+		base::Debug();
 	}
 
 	return true;

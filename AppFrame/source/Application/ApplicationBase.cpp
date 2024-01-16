@@ -120,7 +120,7 @@ namespace AppFrame {
 			_modeServer->RenderInit();
 			_modeServer->Render();
 			_modeServer->RenderFinish();
-			ScreenFlip();			// — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f‚³‚¹‚é
+			//ScreenFlip();			// — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f‚³‚¹‚é
 		}
 		return true;
 	}

@@ -36,6 +36,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		appBase->Input();
 		if (!appBase->Process()) { break; }
 		appBase->Render();
+		ScreenFlip();
 
 		if (appBase->GetAppEnd())
 		{

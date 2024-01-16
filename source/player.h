@@ -49,7 +49,7 @@ public:
 	void Render()override;
 	void Debug() override;
 
-	void PlayerMove(InputManager& input,float speed,float dir);
+	void PlayerMove(InputManager& input,float speed);
 
 	//float GetSpdParam() { return _spdParam; }
 protected:

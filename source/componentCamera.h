@@ -76,15 +76,23 @@ public:
 		vec.Normalized();
 		return vec;
 	}
+	inline VECTOR GetForwardVECTOR() const 
+	{ 
+		auto vec = VSub(_target, _position);
+		DxLib::VNorm(vec);
+		return vec;
+	}
 	inline float GetRadian()const
 	{
-		auto vec = Math::ToDX(GetForward());
+		//auto vec = Math::ToDX(GetForward());
+		auto vec = GetForwardVECTOR();
 		auto dir = Math::ToRadians(std::atan2(-vec.x, -vec.z));
 		return dir;
 	}
 	inline float GetDegree()const
 	{
-		auto vec = Math::ToDX(GetForward());
+		//auto vec = Math::ToDX(GetForward());
+		auto vec = GetForwardVECTOR();
 		auto dir = std::atan2(-vec.x, -vec.z);
 		return dir;
 	}
