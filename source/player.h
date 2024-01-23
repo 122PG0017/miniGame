@@ -56,6 +56,7 @@ protected:
 	int Handle;
 	bool isAnimEnd;
 	//float _spdParam;                         //‰Á‘¬“x”{—¦
+	VECTOR vec;
 	modelInf _modelInf;
 	Rserver RS;
 };
