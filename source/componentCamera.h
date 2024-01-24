@@ -18,13 +18,6 @@ namespace CAMERA
 	constexpr VECTOR TARGET_FREE_LOOK = { 0.0f, 0.0f, 0.0f }; //FREE_LOOK時の注視点
 
 	constexpr float SPD_DEFAULT_RETURN_TO_PLAYER_PARAMETER = 1.0f;//通常時のプレイヤーへカメラ追跡が戻るカメラ速度
-
-	//fov
-	constexpr float FOV_DEFAULT = 60.0f;//デフォルトのfov
-	constexpr float FOV_MIN = 20.0f;//速度変化による視野変更演出時の最低fov
-	constexpr float FOV_MAX = 150.0f;//速度変化による視野変更演出時の最高fov
-	constexpr float SPD_FOV_CHANGE = 10.0f;//速度増加によるfovの変化速度
-	constexpr float SPD_RETURN_FOV_CHANGE = 5.0f;//速度増減によるfovの変化速度
 }
 
 enum class CameraMode 

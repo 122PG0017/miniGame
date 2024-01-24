@@ -2,9 +2,6 @@
 CameraComponent::CameraComponent():_position{0,0,0}
 {
 	const VECTOR zero = Math::VZero();
-	_fov_parameter = 0.0f;
-	_fov = CAMERA::FOV_DEFAULT;
-
 	_target = zero;
 	_oldPosition = zero;
 	_oldTarget = zero;
@@ -28,7 +25,7 @@ bool CameraComponent::Initialize()
     _sideAngle = 0.0;
     _firstflag = true;
 	//カメラ描画距離の設定
-	DxLib::SetCameraNearFar(CAMERA::NEAR_CAMERA, CAMERA::FAR_CAMERA);
+	//DxLib::SetCameraNearFar(CAMERA::NEAR_CAMERA, CAMERA::FAR_CAMERA);
 	return true;
 }
 
@@ -41,13 +38,6 @@ void CameraComponent::Process(InputManager& input)
     // ビュー行列の設定
     auto cameraMatrix = GetCameraViewMatrix();
     DxLib::SetCameraViewMatrix(cameraMatrix);
-
-
-    //fovセット
-    float accelerationFov = (CAMERA::FOV_MAX - CAMERA::FOV_DEFAULT) * _fov_parameter;
-    float decelerationFov = _fov;
-    float fov = accelerationFov + decelerationFov;
-    DxLib::SetupCamera_Perspective(Math::ToRadians(fov));
 
 	switch (_cameraMode) {
 	case CameraMode::Player:

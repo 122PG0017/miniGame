@@ -41,7 +41,7 @@ void Player::Process(InputManager& input)
 	ObjectBase::Process(input);
 
 	//キーボードでの自機移動処理
-	float spd = 10.0;
+	float spd = 1.0;
 	//auto dir = GetComponent<CameraComponent>()->GetDegree();
 	if (input.GetKeyW(InputState::Hold)) { PlayerMove(input, spd); }
 	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input, spd); }
@@ -84,21 +84,13 @@ void Player::PlayerMove(InputManager& input, float speed)
 	_rotation.y = GetComponent<CameraComponent>()->GetForwardVECTOR().y;
 	//_rotation.y = cameravec.y + 180.0f;
 	auto pos = _position;
-	//_position.x -= sin(radian) * speed;
-	//_position.z -= cos(radian) * speed;
-	//pos.x -= sin(radian*100) * speed;
-	//pos.z -= cos(radian*100) * speed;
-	//auto vec.x -= sin(radian) * speed;
-	//auto vec.y -= cos(radian) * speed;
+	
 	vec.x += sin(radian) * speed;
 	vec.y += cos(radian) * speed;
 
-	//_position = Math::Lerp(_position,pos,1);
-	//_position = VAdd(_position, cameravec);
-	//_position.x = _position.x + cameravec.x;
-	//_position.z = _position.y + cameravec.y;
+
 	_position.x = _position.x + vec.x;
-	_position.z = _position.y + vec.y;
+	_position.z = _position.z + vec.y;
 
 	//GetComponent<MV1Component>()->SetAnimation(23);
 	//GetComponent<MV1Component>()->SetLoop(true);
