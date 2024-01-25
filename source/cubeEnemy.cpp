@@ -46,12 +46,12 @@ void CubeEnemy::Process(InputManager& input)
 		if (_position.y == 20) { _sift = true; }
 	}
 	_rotation.y += 0.1f;
-	if (CheckCollision::Intersect(GetComponent<MV1Component>()->GetModelHandle(), _player->GetComponent<SphereCollisionComponent>()))
+	/*if (CheckCollision::Intersect(GetComponent<MV1Component>()->GetModelHandle(), _player->GetComponent<SphereCollisionComponent>()))
 	{
 		ModeServer::GetInstance()->Add(std::make_unique<modeEnd>(), 1, "end");
 		ModeServer::GetInstance()->Del("game");
 		return;
-	};
+	};*/
 	ObjectBase::Process(input);
 }
 

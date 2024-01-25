@@ -41,7 +41,7 @@ void Player::Process(InputManager& input)
 	ObjectBase::Process(input);
 
 	//キーボードでの自機移動処理
-	float spd = 1.0;
+	float spd = 10.0;
 	//auto dir = GetComponent<CameraComponent>()->GetDegree();
 	if (input.GetKeyW(InputState::Hold)) { PlayerMove(input, spd); }
 	if (input.GetKeyS(InputState::Hold)) { PlayerMove(input, spd); }
@@ -63,19 +63,25 @@ void Player::Render()
 
 void Player::Debug()
 {
-	VECTOR forward{ VTransform({0.0f, 500.0f, -5.0f}, _rotationMatrix) };
+	/*VECTOR forward{ VTransform({0.0f, 500.0f, -5.0f}, _rotationMatrix) };
 	VECTOR back{ VTransform({0.0f, -500.0f, 5.0f}, _rotationMatrix) };
     float CrashDeg = 100.0f;
-	float r = std::tanf(Math::ToRadians(CrashDeg * 0.5)) * VSize(VSub(_position, VAdd(_position, forward)));
-
-	DrawCapsule3D(_position, VAdd(_position, forward), r, 8, GetColor(255, 0, 0), GetColor(0, 0, 0), false);
+	float r = std::tanf(Math::ToRadians(CrashDeg * 0.5)) * VSize(VSub(_position, VAdd(_position, forward)));*/
+	auto sinx = sin(radian);
+	auto cosz = cos(radian);
+	DxLib::DrawFormatString(100, 20, GetColor(255, 0, 0), "%f\e", radian);
+	DxLib::DrawFormatString(100, 35, GetColor(255, 0, 0), "%f\e", sinx);
+	DxLib::DrawFormatString(100, 50, GetColor(255, 0, 0), "%f\e", cosz);
+	DxLib::DrawFormatString(100, 65, GetColor(255, 0, 0), "%f\e", vec.x);
+	DxLib::DrawFormatString(100, 80, GetColor(255, 0, 0), "%f\e", vec.z);
+	//DrawCapsule3D(_position, VAdd(_position, forward), r, 8, GetColor(255, 0, 0), GetColor(0, 0, 0), false);
 	ObjectBase::Debug();
 }
 
 void Player::PlayerMove(InputManager& input, float speed)
 {
 	//設定処理
-	auto radian = GetComponent<CameraComponent>()->GetRadian();
+	radian = GetComponent<CameraComponent>()->GetRadian() * 100;
 	auto cameravec = GetComponent<CameraComponent>()->GetForwardVECTOR();
 	//float radian = (_rotation.y+dir) * DX_PI_F / 180.0f;
 	//float radian = Math::ToRadians(dir);
@@ -84,13 +90,13 @@ void Player::PlayerMove(InputManager& input, float speed)
 	_rotation.y = GetComponent<CameraComponent>()->GetForwardVECTOR().y;
 	//_rotation.y = cameravec.y + 180.0f;
 	auto pos = _position;
-	
-	vec.x += sin(radian) * speed;
-	vec.y += cos(radian) * speed;
+
+	vec.x -= sin(radian) * speed;
+	vec.z -= cos(radian) * speed;
 
 
-	_position.x = _position.x + vec.x;
-	_position.z = _position.z + vec.y;
+	_position.x = _position.x - (sin(radian) * speed);
+	_position.z = _position.z - (cos(radian) * speed);
 
 	//GetComponent<MV1Component>()->SetAnimation(23);
 	//GetComponent<MV1Component>()->SetLoop(true);

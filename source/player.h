@@ -57,6 +57,7 @@ protected:
 	bool isAnimEnd;
 	//float _spdParam;                         //‰Á‘¬“x”{—¦
 	VECTOR vec;
+	float radian;
 	modelInf _modelInf;
 	Rserver RS;
 };
